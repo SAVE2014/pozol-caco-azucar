@@ -4,14 +4,20 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+builtins:
+- remote_api: on
+- deferred: on
+
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+- url: /client/modules/(app|admin)/(js|css|img)/(.*/?.*\.(css|js|png|jpg|jpeg|tif|gif|woff|ttf|svg|json|map|eot|txt|))
+  static_files: client/modules/\1/\2/\3
+  upload: client/modules/(app|admin)/(js|css|img)/(.*/?.*\.(css|js|png|jpg|jpeg|tif|gif|woff|ttf|svg|json|map|eot|txt|))
 
 - url: .*
   script: main.app
 
 libraries:
 - name: webapp2
-  version: "2.5.2"
+  version: "latest"
+- name: jinja2
+  version: "latest"
