@@ -40,22 +40,24 @@ class ItemEndpoint(webapp2.RequestHandler):
         item_key = ndb.Key(urlsafe=item_id)
         item = item_key.get()
 
-        word_json = json.loads(self.request.body)
+        item_json = json.loads(self.request.body)
 
-        item.name = word_json['name']
-        item.type = word_json['type']
-        item.brand = word_json['brand']
-        item.image = word_json['image']
-        item.price = word_json['price']
+        item.model = item_json['model']
+        item.type = item_json['type']
+        item.brand = item_json['brand']
+        item.image = item_json['image']
+        item.price = item_json['price']
+        item.description = item_json['description']
 
         item.put()
 
 
 def read_json(passed_dict):
     return Item(
-        name=passed_dict['name'],
+        name=passed_dict['model'],
         type=passed_dict['type'],
         brand=passed_dict['brand'],
         image=passed_dict['image'],
-        price=passed_dict['price']
+        price=passed_dict['price'],
+        description=passed_dict['description']
     )
