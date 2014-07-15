@@ -1,0 +1,55 @@
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+
+*.DS_STORE
+*.sw*
+*~
+build/
+coverage/
+release/
+node_modules/
+vendor/
+.sass-cache/
+*.pyc
+.idea/
+*.DS_STORE
+*.css
+
+.bower-cache
+.bower-registry
+*.bower-tmp
+**.js.map
+**.css.map
