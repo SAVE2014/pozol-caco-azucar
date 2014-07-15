@@ -9,9 +9,9 @@ builtins:
 - deferred: on
 
 handlers:
-- url: /client/modules/(app|admin)/(js|css|img)/(.*/?.*\.(css|js|png|jpg|jpeg|tif|gif|woff|ttf|svg|json|map|eot|txt|))
+- url: /client/modules/(app|admin)/(js|css|img|partials)/(.*/?.*\.(css|js|png|jpg|jpeg|tif|gif|woff|ttf|svg|json|map|eot|txt|))
   static_files: client/modules/\1/\2/\3
-  upload: client/modules/(app|admin)/(js|css|img)/(.*/?.*\.(css|js|png|jpg|jpeg|tif|gif|woff|ttf|svg|json|map|eot|txt|))
+  upload: client/modules/(app|admin)/(js|css|img|partials)/(.*/?.*\.(css|js|png|jpg|jpeg|tif|gif|woff|ttf|svg|json|map|eot|txt|))
 
 - url: .*
   script: main.app
