@@ -1,0 +1,71 @@
+<header>
+
+</header>
+<input  id='searchText' type='text' ng-model="searchText" value="{{ searchText }}">
+<div id='container'>
+    <div class="words-container">
+        <div class="word-container">
+            <div class="word-properties">
+                <div class="word-name">
+                    Chido
+                </div>
+                <div class="word-type">
+                    ADJETIVO
+                </div>
+            </div><!--
+        --><div class="word-details">
+                <div class="word-definition">
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </div>
+                <div class="word-countries">
+                    Mexico, Chile, Argentina
+                </div>
+
+            </div>
+        </div>
+
+        <div class="word-container">
+            <div class="word-properties">
+                <div class="word-name">
+                    A la goma
+                </div>
+                <div class="word-type">
+                    Expresión
+                </div>
+            </div><!--
+        --><div class="word-details">
+                <div class="word-definition">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </div>
+                <div class="word-countries">
+                    Mexico, Guatemala
+                </div>
+
+            </div>
+        </div>
+
+        <div class="word-container">
+            <div class="word-properties">
+                <div class="word-name">
+                    Chamba
+                </div>
+                <div class="word-type">
+                    Sustanvivo
+                </div>
+            </div><!--
+        --><div class="word-details">
+                <div class="word-definition">
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </div>
+                <div class="word-countries">
+                    Mexico
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="word in words |  filter:search ">
+        <a href="">{{word.name}}</a>
+    </div>
+</div>	
+	

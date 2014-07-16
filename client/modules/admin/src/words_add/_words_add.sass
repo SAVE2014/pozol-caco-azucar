@@ -1,0 +1,88 @@
+.word-form
+	+flexbox
+	+flex-direction(column)
+	width: 100%
+	padding: 10px 30px
+	margin-top: 30px
+
+	.form-item
+		+flexbox
+		padding: 10px
+
+		label
+			+flexbox
+			width: 15%
+
+		input, textarea
+			+flexbox
+			width: 85%
+			padding: 5px
+			border: none
+
+		input[type='checkbox']
+			width: 30px
+			height: 30px
+
+		input[name='type']
+			width: 40%
+
+		label[for=vulgar]
+			width: 20%
+			padding-left: 10%
+
+		textarea
+			resize: none
+
+		.example, .tag, .country
+			width: 80%
+
+		.example-item
+			width: 100%
+
+	.form-item-2
+		+flexbox
+		+flex(1)
+		+flex-direction(column)
+
+		.column
+			+flexbox
+			margin-bottom: 20px
+
+		label
+			width: 30%
+
+		input[type='text']
+			width: 60%
+
+		label[for=tag]
+			padding-left: 10%
+
+	.form-buttons
+		+flexbox
+		+justify-content(space-between)
+		padding: 10px
+		margin-top: 35px
+
+		button
+			width: 20%
+			padding: 10px
+
+.repeat.ng-move,
+.repeat.ng-enter,
+.repeat.ng-leave
+	-webkit-transition: all linear 0.5s
+	-moz-transition: all linear 0.5s
+	-ms-transition: all linear 0.5s
+	-o-transition: all linear 0.5s
+	transition: all linear 0.5s
+
+.repeat.ng-leave.ng-leave-active,
+.repeat.ng-move,
+.repeat.ng-enter
+	opacity: 0
+
+.repeat.ng-leave,
+.repeat.ng-move.ng-move-active,
+.repeat.ng-enter.ng-enter-active
+	opacity: 1
+

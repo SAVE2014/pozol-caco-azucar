@@ -1,0 +1,63 @@
+#intro
+	+flexbox
+	+justify-content(center)
+	+align-items(flex-end)
+	min-width: 100%
+	height: 350px
+	background-color: #000
+
+	#tumba, #burros
+		color: #fff
+		font-size: 80px
+
+	#tumba
+		margin-bottom: 50px
+		font-family: $font-serif
+
+	#burros
+		color: #fff
+		font-size: 80px
+		margin-bottom: 54px
+		font-weight: 100
+
+#searchText, .searchOption
+	width: 100%
+	padding: 8px 30%
+	font-size: 20px
+
+#searchText
+	border: none
+	border-style: none
+	border-bottom: solid 1px #EEEEEE
+	border-bottom-style: outset
+	background: url(/client/manage/assets/img/search.png) no-repeat left top
+	background-position-x: calc(30% - 30px)
+	background-position-y: 6px
+
+#searchText:focus
+	outline: none
+
+.searchOptions
+	width: 100%
+	position: absolute
+	z-index: 1000
+
+	.searchOption
+		background-color: #ffffff
+		border: none
+		color: #bdbdbd
+		text-decoration: none
+		list-style: none
+
+
+	.searchOption:focus
+		background-color: red
+
+	.searchOption:hover
+		background-color: $gray-200
+
+	.searchOption.isSelected
+		background-color: blue
+
+	.match
+		color: #000000

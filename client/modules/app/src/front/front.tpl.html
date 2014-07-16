@@ -1,0 +1,16 @@
+<div id='intro' >
+        <span id='tumba'>
+            Tumba
+        </span>
+        <span id='burros'>
+            burros
+        </span>
+</div>
+
+<input  id='searchText' hj-autocomplete options="(wordNames | fuzzyFilter:search | limitTo:5).length" index="currentIndex" ng-model="searchText" type='text' autocomplete="off" ng-keyup="check($event)">
+<div class="searchOptions">
+    <a href="#/search/{{ name }}" ng-repeat="name in wordNames | fuzzyFilter:search | limitTo:5 track by $index" ng-mouseover="setSearchValue(name)">
+        <div class="searchOption" ng-bind-html="name | highlight:search" ng-class="{isSelected: $index == currentIndex}"></div>
+    </a>
+</div>
+<div style="background-color: red; height: 200px;"></div>

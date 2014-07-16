@@ -1,0 +1,49 @@
+<nav>
+    <input type="text" ng-model="searchText"/>
+    <select name="" ></select>
+    <select name="" ></select>
+    <button>clear</button>
+</nav>
+<div id="words-container" ng-cloak>
+    <div class="words-table">
+        <div class="table-header">
+            <div class="header-item">Nombre</div>
+            <div class="header-item">Tipo</div>
+            <div class="header-item">Paises</div>
+            <div class="header-item">Deficnión</div>
+            <div class="header-item">Etiquetas</div>
+        </div>
+        <div class="table-body" >
+            <div class="table-row" ng-repeat="word in words | filter:searchText track by word.id" ng-click="setEditWord(word)" >
+                <div class="row-item">{{ word.name }}</div>
+                <div class="row-item">{{ word.type }}</div>
+                <div class="row-item">
+                    <span ng-repeat="country in word.countries">
+                        {{ country }}
+                    </span>
+                </div>
+                <div class="row-item">{{ word.definition }}</div>
+                <div class="row-item">
+                    <span ng-repeat="tag in word.tags">
+                        {{ tag }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="word-details" ng-show="showdetails">
+        <div class="details-buttons">
+            <button ng-click="hideDetails()">
+                Ocultar Detalles
+            </button>
+            <button ng-click="enableEdit()">
+                Editar Palabra
+            </button>
+        </div>
+        <div ui-view="details"  class="details">
+
+        </div>
+
+    </div>
+
+</div>

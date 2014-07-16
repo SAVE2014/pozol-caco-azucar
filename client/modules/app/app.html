@@ -1,42 +1,29 @@
 <!DOCTYPE html>
 <html ng-app="app" id="ng-app" ng-controller="AppController" >
 <head>
-	<title>Catalogo de Computadoras</title>
+	<title>El Tumbaburros</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="Computers Catalog">
-    <meta name="author" content="Hector Jimenez & Ezra Saucedo">
+    <meta name="description" content="Dictionary">
+    <meta name="author" content="Hector Jimenez">
     <meta charset="utf-8">
 
-	<!--<link rel="shortcut icon" href="http://sothing.com/favicon.ico" type="image/x-icon">-->
-	<!--<link rel="icon" href="http://sothing.com/favicon.ico" type="image/x-icon">-->
+	<link rel="shortcut icon" href="http://www.hectorjimenez.me/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="http://www.hectorjimenez.me/favicon.ico" type="image/x-icon">
 
     <!--fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,700' rel='stylesheet' type='text/css'>
 
-    <!--javascript-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.js" ></script>
-    <script src="http://code.angularjs.org/1.2.4/angular-route.js"></script>
-    <script src="client/modules/admin/js/angular-ui-router.min.js"></script>
-    <script src="client/modules/admin/js/lodash.min.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.min.js"></script>
-    <script src="client/modules/admin/js/app.js"></script>
-    <script src="client/modules/admin/js/controllers.js"></script>
-    <script src="client/modules/admin/js/directives.js"></script>
-    <script src="client/modules/admin/js/services.js"></script>
-
     <!-- compiled CSS -->
-    <!--<link rel="stylesheet" href="css/main.css">-->
+    <% styles.forEach( function ( file ) { %><link rel="stylesheet" href="<%= file %>"/>
+    <% }); %>
 
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <% scripts.forEach( function ( file ) { %><script src="<%= file %>"></script>
+    <% }); %>
 
 </head>
 <body>
-
+    
 	<div class="view" ui-view ></div>
 
 </body>

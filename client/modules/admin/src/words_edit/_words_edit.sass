@@ -1,0 +1,137 @@
+nav
+	+flexbox
+	+justify-content(space-around)
+	width: 100%
+	height: 50px
+	padding: 10px 0px
+
+	input
+		width: 250px
+
+	select
+		width: 180px
+		border-radius: 0px
+
+	button
+		width: 120px
+
+
+#words-container
+	+flexbox
+	width: 100%
+	padding: 10px
+	height: calc(100% - 50px)
+
+	.words-table
+		+flexbox
+		+flex-direction(column)
+		width: 100%
+		height: 100%
+
+		.table-header
+			+flexbox
+			+flex-direction(row)
+			width: 100%
+
+			.header-item
+				+flex(1)
+				min-height: min-content
+				padding: 5px
+				text-align: center
+				background-color: darkgray
+				color: #ffffff
+				border-left: solid 1px #ffffff
+
+			.header-item:first-child
+				+flex(2)
+				border-left: none
+
+			.header-item:nth-child(4)
+				+flex(4)
+
+		.table-body
+			+flexbox
+			+flex-direction(column)
+			width: 100%
+			overflow-y: auto
+			height: 100%
+
+			.table-row
+				+flexbox
+				width: 100%
+				min-height: 30px
+
+
+				.row-item
+					+flex(1)
+					padding: 5px
+					text-align: center
+					border-left: solid 1px lightgray
+					white-space: nowrap
+					overflow: hidden
+					text-overflow: ellipsis
+
+				.row-item:first-child
+					+flex(2)
+					border-left: none
+
+				.row-item:nth-child(4)
+					+flex(4)
+
+			.table-row:hover
+				background-color: #e0e0e0
+
+			.table-row.selected
+				background-color: #d3d3d3
+
+	.word-details
+		width: 100%
+		height: 100%
+		border-left: solid 1px darkgrey
+		
+		.details-buttons
+			+flexbox
+			+justify-content(space-around)
+
+
+		.details
+			height: calc(100% - 41px)
+			overflow-y: auto
+
+			label[for=tag]
+				display: none
+
+			label[for=country]
+				display: none
+
+		.word-details.ng-hide-add, .word-details.ng-hide-remove
+			-webkit-transition: all linear 1s
+			-moz-transition: all linear 1s
+			-ms-transition: all linear 1s
+			transition: all linear 1s
+
+
+		.word-details.ng-hide-add, .word-details.ng-hide-remove
+			position: absolute
+			background: inherit
+			-ms-transition: 2.25s ease-in-out
+			-webkit-transition: 1.25s ease-in-out
+			transition:  2.25s ease-in-out
+
+			.word-details.ng-enter
+				z-index: 101
+				-webkit-transform: translateX(100%)
+				transform: translateX(100%)
+
+			.word-details.ng-enter.ng-enter-active
+				-webkit-transform: translateX(0)
+				transform: translateX(0)
+
+			.word-details.ng-leave
+				z-index: 100
+				-webkit-transform: translateX(0)
+				transform: translateX(0)
+
+			.word-details.ng-leave.ng-leave-active
+				-webkit-transform: translateX(-100%)
+				transform: translateX(-100%)
