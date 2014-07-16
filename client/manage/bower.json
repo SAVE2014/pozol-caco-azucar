@@ -6,12 +6,14 @@
     "jasmine-jquery": "latest"
   },
   "dependencies": {
+    "jquery": "2.0.3",
     "moment": "~2.5.0",
     "ng-grid": "2.0.7",
     "angular": "1.2.17",
     "selectize": "~0.9.1",
     "restangular": "1.3.1",
     "moment-range": "0.1.9",
+    "bootstrap": "~3.1.1",
     "angular-motion": "~0.3.2",
     "angular-moment": "~0.6.2",
     "angular-filters": "1.0.1",

@@ -37,6 +37,7 @@ module.exports = {
             '<%= manage %>/vendor/select2/select2.js',
 			'<%= manage %>/vendor/lodash/dist/lodash.js',
 			'<%= manage %>/vendor/highcharts/highcharts.src.js',
+            '<%= manage %>/vendor/bootstrap/dist/js/bootstrap.js',
 			'<%= manage %>/vendor/restangular/dist/restangular.js',
 			'<%= manage %>/vendor/angular-moment/angular-moment.js',
 			'<%= manage %>/vendor/moment-range/lib/moment-range.js',
@@ -51,6 +52,7 @@ module.exports = {
 
 		css: [
 			'vendor/select2/select2.css',
+            'vendor/bootstrap/dist/css/bootstrap.css',
             'vendor/angular-motion/dist/angular-motion.css'
         ],
 

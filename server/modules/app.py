@@ -27,9 +27,9 @@ class AppHandler(webapp2.RequestHandler):
         #     "names": json.dumps(names)
         # }
 
-        template_path = 'app.html'
-        # if self.request.get('debug', None) or self.app.debug:
-        #     template_path = 'build/app.html'
+        template_path = 'release/app.html'
+        if self.request.get('debug', None) or self.app.debug:
+            template_path = 'build/app.html'
 
         template = JINJA_ENVIRONMENT.get_template(template_path)
 

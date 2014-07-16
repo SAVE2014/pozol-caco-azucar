@@ -27,10 +27,10 @@ class AdminHandler(webapp2.RequestHandler):
         #     "names": json.dumps(names)
         # }
 
-        template_path = 'admin.html'
-        # if self.request.get('debug', None) or self.app.debug:
-        #     template_path = 'build/app.html'
+        template_path = 'release/admin.html'
+        if self.request.get('debug', None) or self.app.debug:
+            template_path = 'build/admin.html'
 
         template = JINJA_ENVIRONMENT.get_template(template_path)
 
-        self.response.out.write(template.render())
+        self.response.out.write(template)
