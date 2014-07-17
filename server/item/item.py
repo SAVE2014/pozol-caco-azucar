@@ -4,11 +4,12 @@ from google.appengine.ext import ndb
 
 
 class Item(ndb.Model):
-    INDEX = 'Items'
 
+    created = ndb.DateTimeProperty(auto_now_add=True)
+    updated = ndb.DateTimeProperty(auto_now_add=True)
     model = ndb.StringProperty(indexed=True)
     type = ndb.StringProperty(indexed=True)
     brand = ndb.StringProperty(indexed=True)
-    image = ndb.StringProperty()
     price = ndb.FloatProperty(indexed=True)
     description =ndb.TextProperty()
+    image = ndb.StringProperty()

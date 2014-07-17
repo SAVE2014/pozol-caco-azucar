@@ -4,15 +4,8 @@ angular.module('admin.front', [])
         $stateProvider
             .state('admin', {
                 url: '/',
-                views: {
-                    '': {
-                        abstract: true,
-                        templateUrl: 'front/front.tpl.html'
-                    },
-                    'main@admin': {
-                        template: 'Hello!'
-                    }
-                }
+                controller:'FrontController',
+                templateUrl: 'front/front.tpl.html'
             });
     })
 

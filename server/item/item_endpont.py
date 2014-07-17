@@ -3,6 +3,7 @@ import webapp2
 import cgi
 import json
 import logging
+import datetime
 
 
 from server.item.item import Item
@@ -18,6 +19,8 @@ class ItemEndpoint(webapp2.RequestHandler):
             item = i.to_dict()
             item['id'] = i.key.urlsafe()
             item['key_id'] = i.key.id()
+            item['created'] = i.created.date().strftime("%d, %b %Y")
+            item['updated'] = i.created.date().strftime("%d, %b %Y")
             self.response.out.write(json.dumps(item))
 
         else:
@@ -27,6 +30,8 @@ class ItemEndpoint(webapp2.RequestHandler):
                 item = i.to_dict()
                 item['id'] = i.key.urlsafe()
                 item['key_id'] = i.key.id()
+                item['created'] = i.created.date().strftime("%d, %b %Y")
+                item['updated'] = i.created.date().strftime("%d, %b %Y")
                 items_dict.append(item)
 
             self.response.out.write(json.dumps(items_dict))
@@ -48,6 +53,7 @@ class ItemEndpoint(webapp2.RequestHandler):
         item.image = item_json['image']
         item.price = item_json['price']
         item.description = item_json['description']
+        item.updated = datetime.datetime.now()
 
         item.put()
 

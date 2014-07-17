@@ -4,16 +4,18 @@ angular.module('admin', [
     'ngAnimate',
     'ui.router',
     'restangular',
+    'angular-growl',
     'admin.front',
     'admin.add',
     'admin.edit',
-    'admin.requests',
+    'admin.items',
     'templates-app'])
 
 
-    .config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, growlProvider) {
         $urlRouterProvider.otherwise('/');
         RestangularProvider.setBaseUrl('/api/v1');
+        //growlProvider.globalTimeToLive(5000);
 
     })
 

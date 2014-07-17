@@ -13,6 +13,9 @@ handlers:
   static_files: client/modules/\1/\2/\3
   upload: client/modules/(app|admin)/(build|release)/(.*/?.*\.(css|js|png|jpg|jpeg|tif|gif|woff|ttf|svg|json|map|eot|txt))
 
+- url: /client/manage/assets
+  static_dir: client/manage/assets
+
 - url: .*
   script: main.app
 

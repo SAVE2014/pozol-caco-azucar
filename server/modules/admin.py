@@ -28,9 +28,11 @@ class AdminHandler(webapp2.RequestHandler):
         # }
 
         template_path = 'release/admin.html'
+        logging.info('release environment')
         if self.request.get('debug', None) or self.app.debug:
             template_path = 'build/admin.html'
+            logging.info('build environment')
 
         template = JINJA_ENVIRONMENT.get_template(template_path)
 
-        self.response.out.write(template)
+        self.response.out.write(template.render())

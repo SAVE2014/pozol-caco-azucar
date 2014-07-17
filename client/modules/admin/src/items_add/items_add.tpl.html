@@ -1,0 +1,47 @@
+<div class="edit-view" >
+    <div class="row edit-btn-row">
+        <button type="button" class="btn btn-default" ng-click="hideDetails()"> Ver todos los articulos </button>
+
+        <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Editar</button>
+    </div>
+    <form role="form">
+        <div class="form-group">
+            <label for="itemModel">Modelo</label>
+            <input type="text" ng-model="editItem.item.model" ng-disabled="disableInputs" class="form-control" id="itemModel" placeholder="Modelo del articulo">
+        </div>
+
+        <div class="form-group">
+            <label for="itemType">Tipo</label>
+            <input type="text" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control" id="itemType" placeholder="Tipo de articulo">
+        </div>
+
+        <div class="form-group">
+            <label for="itemPrice">Precio</label>
+            <input type="text" ng-model="editItem.item.price" ng-disabled="disableInputs" class="form-control" id="itemPrice" placeholder="Precio del articulo" value="editItem.item.price|currency">
+        </div>
+
+        <div class="form-group">
+            <label for="itemBrand">Marca</label>
+            <input type="text" ng-model="editItem.item.brand" ng-disabled="disableInputs" class="form-control" id="itemBrand" placeholder="Marca del articulo">
+        </div>
+
+        <div class="form-group">
+            <label for="itemDescription">Descripción</label>
+            <textarea id="itemDescription" ng-model="editItem.item.description" ng-disabled="disableInputs" class="form-control" rows="5" placeholder="Descripción del articulo">
+
+            </textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="">Fotos</label>
+
+            <img src="client/manage/assets/img/itemDefault.png" alt="Foto de articulo" class="img-thumbnail">
+        </div>
+
+
+        <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
+            Guardar
+        </button>
+    </form>
+
+</div>

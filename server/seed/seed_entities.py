@@ -27,7 +27,7 @@ def make_items():
 
     for x in range(0, 100):
         item = Item(
-            model='Word ' + str(x),
+            model='Item ' + str(x),
             type=types[random.randint(0, 4)],
             brand=brands[random.randint(0, 4)],
             image='default',
@@ -36,4 +36,4 @@ def make_items():
         items.append(item)
 
     ndb.put_multi(items)
-    return "seeded %s words" % len(items)
+    return "seeded %s items" % len(items)
