@@ -57,7 +57,7 @@ angular.module('admin.items', [])
 
         $scope.saveItem = function(){
             EditItemSvc.updateItem();
-            growl.addSuccessMessage("Articulo Editado");
+            growl.addSuccessMessage("Articulo editado exitosamente ");
         };
 
     })

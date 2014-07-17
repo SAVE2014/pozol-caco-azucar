@@ -7,7 +7,6 @@ angular.module('admin', [
     'angular-growl',
     'admin.front',
     'admin.add',
-    'admin.edit',
     'admin.items',
     'templates-app'])
 
@@ -19,7 +18,7 @@ angular.module('admin', [
 
     })
 
-    .controller('AdminController', function($scope, Restangular, EditWordSvc) {
+    .controller('AdminController', function($scope, Restangular) {
 
 
     })

@@ -27,9 +27,9 @@ angular.module('admin.add', [])
 
 
 
-        service.saveWord = function(word){
-                    console.log(JSON.stringify(word, null, '\t'));
-                };
+        service.saveWord = function(word) {
+            console.log(JSON.stringify(word, null, '\t'));
+        };
 
         return service;
     })
