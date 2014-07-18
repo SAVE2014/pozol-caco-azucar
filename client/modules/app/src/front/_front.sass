@@ -1,63 +1,55 @@
-#intro
-	+flexbox
-	+justify-content(center)
-	+align-items(flex-end)
-	min-width: 100%
-	height: 350px
-	background-color: #000
+.nav > li > a, .navbar-brand
+	color: white
+	font-size: 1.5em
+	padding-top: 30px
 
-	#tumba, #burros
-		color: #fff
-		font-size: 80px
+.nav > li > a:hover, .nav > li > a:focus, .navbar-brand:hover
+	background-color: transparent
+	color: white
+	text-decoration: underline
 
-	#tumba
-		margin-bottom: 50px
-		font-family: $font-serif
+.navbar-toggle
+	border-color: white
+	color: white
+	margin-top: 20px
 
-	#burros
-		color: #fff
-		font-size: 80px
-		margin-bottom: 54px
-		font-weight: 100
+.icon-bar
+	background-color: white !important
 
-#searchText, .searchOption
+.main-container
 	width: 100%
-	padding: 8px 30%
-	font-size: 20px
+	height: 100%
+	background: url(/client/manage/assets/img/big-bg.jpg)
+	background-repeat: no-repeat
+	background-position: center center
+	background-attachment: fixed
 
-#searchText
-	border: none
-	border-style: none
-	border-bottom: solid 1px #EEEEEE
-	border-bottom-style: outset
-	background: url(/client/manage/assets/img/search.png) no-repeat left top
-	background-position-x: calc(30% - 30px)
-	background-position-y: 6px
+	.intro
+		text-align: center
 
-#searchText:focus
-	outline: none
+		.headers
+			margin-top: 10%
+			color: white
+			letter-spacing: 5px
 
-.searchOptions
-	width: 100%
-	position: absolute
-	z-index: 1000
+			h1
+				font-size: 6em
+				font-weight: bold
+				margin-bottom: 0px
 
-	.searchOption
-		background-color: #ffffff
-		border: none
-		color: #bdbdbd
-		text-decoration: none
-		list-style: none
+			h2
+				font-size: 2em
+				margin-bottom: 20px
+				font-weight: normal
+				letter-spacing: 1px
 
+			.btn
+				border: solid 1px white
+				font-size: 1.5em
+				color: white
+				padding: 16px
+				background-color: rgba(0,0,0, 0.2)
 
-	.searchOption:focus
-		background-color: red
-
-	.searchOption:hover
-		background-color: $gray-200
-
-	.searchOption.isSelected
-		background-color: blue
-
-	.match
-		color: #000000
+			.btn:hover
+				background-color: #4bb43a
+				border-color: #4bb43a

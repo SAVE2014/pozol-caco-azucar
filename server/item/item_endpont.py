@@ -51,7 +51,7 @@ class ItemEndpoint(webapp2.RequestHandler):
         item.type = item_json['type']
         item.brand = item_json['brand']
         item.image = item_json['image']
-        item.price = item_json['price']
+        item.price = float(item_json['price'])
         item.description = item_json['description']
         item.updated = datetime.datetime.now()
 
@@ -64,6 +64,6 @@ def read_json(passed_dict):
         type=passed_dict['type'],
         brand=passed_dict['brand'],
         image=passed_dict['image'],
-        price=passed_dict['price'],
+        price=float(passed_dict['price']),
         description=passed_dict['description']
     )

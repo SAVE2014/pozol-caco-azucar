@@ -2,7 +2,7 @@
 
 <div class="search-view" ng-hide="editView">
     <div class="row items-search">
-        <form class="form-inline col-xs-12" role="form">
+        <form class="form-inline col-xs-12 col-md-8 col-md-offset-2" role="form">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon">Busqueda</div>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="row items-container" >
-        <div class="table-responsive col-xs-12 table-items">
+        <div class="table-responsive table-items col-xs-12 col-md-8 col-md-offset-2">
             <table class="table table-hover table-bordered">
                 <thead class="items-table-head">
                     <tr>
@@ -41,48 +41,54 @@
 
 <div class="edit-view" ng-show="editView">
     <div class="row edit-btn-row">
-        <button type="button" class="btn btn-default" ng-click="hideDetails()"> Ver todos los articulos </button>
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <button type="button" class="btn btn-default" ng-click="hideDetails()"> Ver todos los articulos </button>
 
-        <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Editar</button>
+            <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Editar</button>
+        </div>
     </div>
-    <form role="form">
-        <div class="form-group">
-            <label for="itemModel">Modelo</label>
-            <input type="text" ng-model="editItem.item.model" ng-disabled="disableInputs" class="form-control" id="itemModel" placeholder="Modelo del articulo">
-        </div>
 
-        <div class="form-group">
-            <label for="itemType">Tipo</label>
-            <input type="text" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control" id="itemType" placeholder="Tipo de articulo">
-        </div>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <form role="form">
+            <div class="form-group">
+                <label for="itemModel">Modelo</label>
+                <input type="text" ng-model="editItem.item.model" ng-disabled="disableInputs" class="form-control" id="itemModel" placeholder="Modelo del articulo">
+            </div>
 
-        <div class="form-group">
-            <label for="itemPrice">Precio</label>
-            <input type="text" ng-model="editItem.item.price" ng-disabled="disableInputs" class="form-control" id="itemPrice" placeholder="Precio del articulo" value="editItem.item.price|currency">
-        </div>
+            <div class="form-group">
+                <label for="itemType">Tipo</label>
+                <input type="text" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control" id="itemType" placeholder="Tipo de articulo">
+            </div>
 
-        <div class="form-group">
-            <label for="itemBrand">Marca</label>
-            <input type="text" ng-model="editItem.item.brand" ng-disabled="disableInputs" class="form-control" id="itemBrand" placeholder="Marca del articulo">
-        </div>
+            <div class="form-group">
+                <label for="itemPrice">Precio</label>
+                <input type="text" ng-model="editItem.item.price" ng-disabled="disableInputs" class="form-control" id="itemPrice" placeholder="Precio del articulo" value="editItem.item.price|currency">
+            </div>
 
-        <div class="form-group">
-            <label for="itemDescription">Descripción</label>
-            <textarea id="itemDescription" ng-model="editItem.item.description" ng-disabled="disableInputs" class="form-control" rows="5" placeholder="Descripción del articulo">
+            <div class="form-group">
+                <label for="itemBrand">Marca</label>
+                <input type="text" ng-model="editItem.item.brand" ng-disabled="disableInputs" class="form-control" id="itemBrand" placeholder="Marca del articulo">
+            </div>
 
-            </textarea>
-        </div>
+            <div class="form-group">
+                <label for="itemDescription">Descripción</label>
+                <textarea id="itemDescription" ng-model="editItem.item.description" ng-disabled="disableInputs" class="form-control" rows="5" placeholder="Descripción del articulo">
 
-        <div class="form-group">
-            <label for="">Fotos</label>
+                </textarea>
+            </div>
 
-            <img src="client/manage/assets/img/itemDefault.png" alt="Foto de articulo" class="img-thumbnail">
-        </div>
+            <div class="form-group">
+                <label for="">Fotos</label>
+
+                <img src="client/manage/assets/img/itemDefault.png" alt="Foto de articulo" class="img-thumbnail">
+            </div>
 
 
-        <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
-            Guardar
-        </button>
-    </form>
+            <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
+                Guardar
+            </button>
+        </form>
+    </div>
+
 
 </div>

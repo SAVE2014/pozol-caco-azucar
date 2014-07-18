@@ -18,17 +18,13 @@ angular.module('admin.add', [])
         var service = {};
         service.model = '';
         service.type = '';
-        service.vulgar = false;
-        service.definition = '';
-        service.origin = '';
-        service.examples = [{content:'', meaning:''}];
-        service.tags = [''];
-        service.images = [''];
-
-
-
-        service.saveWord = function(word) {
-            console.log(JSON.stringify(word, null, '\t'));
+        service.price = '';
+        service.brand = '';
+        service.description = '';
+//        service.images = [''];
+//
+        service.saveItem = function() {
+            console.log(JSON.stringify(service, null, '\t'));
         };
 
         return service;
@@ -36,35 +32,12 @@ angular.module('admin.add', [])
 
     .controller('ItemsAddController', function ($scope, AddItemSvc) {
 
-        $scope.item = AddItemSvc;
+        $scope.addItem = AddItemSvc;
 
-//        $scope.addExample = function(){
-//            AddWordSvc.addExample();
-//        };
-//
-//        $scope.removeExample = function(index){
-//            AddWordSvc.removeExample(index);
-//        };
-//
-//        $scope.addCountry = function(){
-//            AddWordSvc.addCountry();
-//        };
-//
-//        $scope.removeCountry = function(index){
-//            AddWordSvc.removeCountry(index);
-//        };
-//
-//        $scope.addTag = function(){
-//            AddWordSvc.addTag();
-//        };
-//
-//        $scope.removeTag = function(index){
-//            AddWordSvc.removeTag(index);
-//        };
-//
-//        $scope.consoleword = function(word){
-//            AddWordSvc.saveWord(word);
-//        };
+
+        $scope.saveItem = function(){
+            AddItemSvc.saveItem();
+        };
 
     })
 ;

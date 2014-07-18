@@ -1,52 +1,53 @@
 <div class="add-view" >
     <div class="row add-row">
-        <h1>
-            Instrucciones
-        </h1>
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <h1>Instrucciones</h1>
 
-        <p>
-            Favor de agregar por lo menos una foto por cada nuevo articulo. Para una major resolucion se recomienda que los fotos sean de 512 x 512 pixeles.
+            <p>
+                Favor de agregar por lo menos una foto por cada nuevo articulo. Para una major resolucion se recomienda que los fotos sean de 512 x 512 pixeles.
 
-        </p>
+            </p>
+        </div>
     </div>
-    <form role="form">
-        <div class="form-group">
-            <label for="itemModel">Modelo</label>
-            <input type="text" ng-model="editItem.item.model" ng-disabled="disableInputs" class="form-control" id="itemModel" placeholder="Modelo del articulo">
-        </div>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <form role="form">
+            <div class="form-group">
+                <label for="itemModel">Modelo</label>
+                <input type="text" ng-model="addItem.model" ng-disabled="disableInputs" class="form-control" id="itemModel" placeholder="Modelo del articulo">
+            </div>
 
-        <div class="form-group">
-            <label for="itemType">Tipo</label>
-            <input type="text" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control" id="itemType" placeholder="Tipo de articulo">
-        </div>
+            <div class="form-group">
+                <label for="itemType">Tipo</label>
+                <input type="text" ng-model="addItem.type" ng-disabled="disableInputs" class="form-control" id="itemType" placeholder="Tipo de articulo">
+            </div>
 
-        <div class="form-group">
-            <label for="itemPrice">Precio</label>
-            <input type="text" ng-model="editItem.item.price" ng-disabled="disableInputs" class="form-control" id="itemPrice" placeholder="Precio del articulo" value="editItem.item.price|currency">
-        </div>
+            <div class="form-group">
+                <label for="itemPrice">Precio</label>
+                <input type="text" ng-model="addItem.price" ng-disabled="disableInputs" class="form-control" id="itemPrice" placeholder="Precio del articulo" value="editItem.item.price|currency">
+            </div>
 
-        <div class="form-group">
-            <label for="itemBrand">Marca</label>
-            <input type="text" ng-model="editItem.item.brand" ng-disabled="disableInputs" class="form-control" id="itemBrand" placeholder="Marca del articulo">
-        </div>
+            <div class="form-group">
+                <label for="itemBrand">Marca</label>
+                <input type="text" ng-model="addItem.brand" ng-disabled="disableInputs" class="form-control" id="itemBrand" placeholder="Marca del articulo">
+            </div>
 
-        <div class="form-group">
-            <label for="itemDescription">Descripción</label>
-            <textarea id="itemDescription" ng-model="editItem.item.description" ng-disabled="disableInputs" class="form-control" rows="5" placeholder="Descripción del articulo">
+            <div class="form-group">
+                <label for="itemDescription">Descripción</label>
+                <textarea id="itemDescription" ng-model="addItem.description" ng-disabled="disableInputs" class="form-control" rows="5" placeholder="Descripción del articulo">
 
-            </textarea>
-        </div>
+                </textarea>
+            </div>
 
-        <div class="form-group">
-            <label for="">Fotos</label>
+            <div class="form-group">
+                <label for="">Fotos</label>
 
-            <img src="client/manage/assets/img/itemDefault.png" alt="Foto de articulo" class="img-thumbnail">
-        </div>
+                <img src="client/manage/assets/img/itemDefault.png" alt="Foto de articulo" class="img-thumbnail">
+            </div>
 
 
-        <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
-            Guardar
-        </button>
-    </form>
-
+            <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
+                Guardar
+            </button>
+        </form>
+    </div>
 </div>
