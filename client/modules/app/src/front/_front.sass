@@ -2,11 +2,11 @@
 	color: white
 	font-size: 1.5em
 	padding-top: 30px
+	font-weight: 300
 
 .nav > li > a:hover, .nav > li > a:focus, .navbar-brand:hover
 	background-color: transparent
 	color: white
-	text-decoration: underline
 
 .navbar-toggle
 	border-color: white
@@ -23,22 +23,41 @@
 	background-repeat: no-repeat
 	background-position: center center
 	background-attachment: fixed
+	-webkit-filter: grayscale(40%)
+	filter: grayscale(40%)
+
 
 	.intro
-		text-align: center
+		+flexbox
+		+flex(1)
+		+align-items(center)
+		+justify-content(center)
+		height: 100%
 
 		.headers
-			margin-top: 10%
+			@media (min-height: 500px)
+				margin-top: -100px
+			@media (min-height: 768px)
+				margin-top: -180px
+			text-align: center
 			color: white
 			letter-spacing: 5px
 
 			h1
-				font-size: 6em
+				font-size: 2em
+				@media (min-width: 480px)
+					font-size: 4em
+				@media (min-width: 768px)
+					font-size: 6em
 				font-weight: bold
 				margin-bottom: 0px
 
 			h2
-				font-size: 2em
+				font-size: 18px
+				@media (min-width: 480px)
+					font-size: 1.5em
+				@media (min-width: 768px)
+					font-size: 2em
 				margin-bottom: 20px
 				font-weight: normal
 				letter-spacing: 1px
@@ -51,5 +70,5 @@
 				background-color: rgba(0,0,0, 0.2)
 
 			.btn:hover
-				background-color: #4bb43a
-				border-color: #4bb43a
+				background-color: #259b24
+				border-color: #259b24

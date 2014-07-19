@@ -1,71 +1,37 @@
-<header>
+<div class="row">
+    <div class="options">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carType">
+              TIPO
+            </button>
 
-</header>
-<input  id='searchText' type='text' ng-model="searchText" value="{{ searchText }}">
-<div id='container'>
-    <div class="words-container">
-        <div class="word-container">
-            <div class="word-properties">
-                <div class="word-name">
-                    Chido
-                </div>
-                <div class="word-type">
-                    ADJETIVO
-                </div>
-            </div><!--
-        --><div class="word-details">
-                <div class="word-definition">
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </div>
-                <div class="word-countries">
-                    Mexico, Chile, Argentina
-                </div>
-
+            <div id="carType" class="collapse">
+                <p>
+                    asdfasdfasdfhakshjdgfjka sgdfjkagsdjfkagsdjkfgaksdfgakjshdg fjahsdgfjkasgfjkhasdgfjhasdgfj
+                </p>
             </div>
         </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carEngine">
+              MOTOR
+            </button>
 
-        <div class="word-container">
-            <div class="word-properties">
-                <div class="word-name">
-                    A la goma
-                </div>
-                <div class="word-type">
-                    Expresión
-                </div>
-            </div><!--
-        --><div class="word-details">
-                <div class="word-definition">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </div>
-                <div class="word-countries">
-                    Mexico, Guatemala
-                </div>
-
+            <div id="carEngine" class="collapse">
+                <p>
+                    asdfasdfasdfhakshjdgfjka sgdfjkagsdjfkagsdjkfgaksdfgakjshdg fjahsdgfjkasgfjkhasdgfjhasdgfj
+                </p>
             </div>
         </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carPrice">
+              PRECIO
+            </button>
 
-        <div class="word-container">
-            <div class="word-properties">
-                <div class="word-name">
-                    Chamba
-                </div>
-                <div class="word-type">
-                    Sustanvivo
-                </div>
-            </div><!--
-        --><div class="word-details">
-                <div class="word-definition">
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                </div>
-                <div class="word-countries">
-                    Mexico
-                </div>
-
+            <div id="carPrice" class="collapse">
+                <p>
+                    asdfasdfasdfhakshjdgfjka sgdfjkagsdjfkagsdjkfgaksdfgakjshdg fjahsdgfjkasgfjkhasdgfjhasdgfj
+                </p>
             </div>
         </div>
     </div>
-    <div ng-repeat="word in words |  filter:search ">
-        <a href="">{{word.name}}</a>
-    </div>
-</div>	
-	
+</div>

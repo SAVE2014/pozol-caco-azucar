@@ -53,6 +53,7 @@ module.exports = {
 
 		css: [
             'vendor/bootstrap/dist/css/bootstrap.css',
+            'vendor/bootstrap/dist/css/bootstrap.css.map',
             'vendor/angular-motion/dist/angular-motion.css',
             'vendor/angular-growl/build/angular-growl.min.css'
         ],

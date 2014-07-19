@@ -51,9 +51,8 @@ module.exports = {
         ],
 
 		css: [
-			'vendor/select2/select2.css',
-            'vendor/angular-ui-select/dist/select.css',
             'vendor/bootstrap/dist/css/bootstrap.css',
+            'vendor/bootstrap/dist/css/bootstrap.css.map',
             'vendor/angular-motion/dist/angular-motion.css',
             'vendor/selectize/dist/css/selectize.default.css'
         ],

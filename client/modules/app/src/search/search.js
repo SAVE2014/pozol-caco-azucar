@@ -3,7 +3,7 @@ angular.module('app.search', ['ngRoute'])
     .config(function($stateProvider, $urlRouterProvider){
         $stateProvider
             .state('search', {
-                url: '/search/:wordName',
+                url: '/search',
                 templateUrl: 'search/search.tpl.html',
                 controller: 'SearchController'
             });

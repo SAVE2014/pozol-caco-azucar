@@ -1,51 +1,36 @@
-#container
-	margin: 0px
-	height: calc(100% - 91px)
-	overflow-y: auto
+.options
+	position: absolute
+	width: 100%
+	top: 12%
+	left: 50%
+	margin-top: 130px
+	-webkit-transform: translateX(-50%)
+	-moz-transform: translateX(-50%)
+	-ms-transform: translateX(-50%)
+	transform: translateX(-50%)
 
-	.words-container
-		width: 800px
-		margin: 40px auto 0px auto
-		padding: 0px
-		//background-color: red
+.btn-option
+	background-color: #259b24
+	color: white
+	border: none
+	font-weight: 700
+	text-transform: uppercase
+	margin: 10px 0 20px
+	padding: 0px 20px
+	line-height: 50px
+	height: 50px
+	letter-spacing: 1px
+	width: 100%
+	cursor: pointer
+	display: block
+	//box-shadow: 0 3px 0 rgba(0,0,0,0.1)
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
 
-		.word-container
-			width: 100%
-			margin-bottom: 40px
-
-			.word-properties
-				display: inline-block
-				width: 225px
-				margin: 0px
-				padding: 10px
-				border: none
-				//background-color: yellow
-				vertical-align: top
-
-				.word-name
-					font-weight: bold
-					font-size: 18px
-					letter-spacing: 2px
-
-				.word-type
-					color: #9e9e9e
-					letter-spacing: 5px
-
-			.word-details
-				display: inline-block
-				width: 573px
-				margin: 0px
-				padding: 5px 15px
-				border: none
-				border-left: solid 2px #bdbdbd
-				//background-color: blue
-
-				.word-definition
-					overflow: hidden
-					text-overflow: ellipsis
-					margin-bottom: 15px
-
-				.word-countries
-					color: #9e9e9e
-					font-size: 14px
-					letter-spacing: 2px
+.btn-option:hover, .btn-option:focus
+	color: white
+	outline: none
