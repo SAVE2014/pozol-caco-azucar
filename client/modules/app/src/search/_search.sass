@@ -1,18 +1,97 @@
+.search-text
+	margin-top: 50px
+	text-align: center
+
 .options
 	position: absolute
 	width: 100%
-	top: 12%
+	top: 10%
 	left: 50%
 	margin-top: 130px
 	-webkit-transform: translateX(-50%)
 	-moz-transform: translateX(-50%)
 	-ms-transform: translateX(-50%)
 	transform: translateX(-50%)
+	padding: 15px
+
+	span.icon
+		float: right
+		font-size: 40px
+
+
+	.option, .option-price
+		height: 40px
+		line-height: 40px
+		color: #9e9e9e
+		padding-left: 20px
+		font-weight: 300
+
+	.option:hover
+		background-color: #eeeeee
+
+	.option-price
+		padding-right: 20px
+
+	.option-price:hover
+		background-color: #FFFFFF
+
+		div.slider-handle
+			background-image: none !important
+			background-color: #259b24 !important
+
+		.slider-handle.round
+			background-image: none !important
+			background-color: #259b24 !important
+
+		.slider-handle.round:hover, .slider-handle.round:focus
+			outline: none
+
+		.slider.slider-horizontal
+			width: 100%
+
+		.slider.slider-horizontal .slider-track
+			height: 7px
+
+	#carType, #carEngine, #carPrice
+		//margin-right: -5px
+		border: solid 1px #bdbdbd
+		border-top: none
+
+
+.btn:focus, .btn:active:focus, .btn.active:focus
+	outline: none
+	box-shadow: none
+
+.btn:active, .btn:focus, .btn:hover
+	color: white
 
 .btn-option
 	background-color: #259b24
 	color: white
 	border: none
+	font-weight: 700
+	font-size: 18px
+	text-transform: uppercase
+	margin-top: 10px
+	padding: 0px 20px
+	line-height: 50px
+	height: 50px
+	letter-spacing: 1px
+	width: 100%
+	cursor: pointer
+	display: block
+	//box-shadow: 0 3px 0 rgba(0,0,0,0.1)
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+.btn-search
+	background-color: #FFFFFF
+	color: #259b24
+	border: solid 1px #259b24
 	font-weight: 700
 	text-transform: uppercase
 	margin: 10px 0 20px
@@ -31,6 +110,6 @@
 	-ms-user-select: none
 	user-select: none
 
-.btn-option:hover, .btn-option:focus
-	color: white
-	outline: none
+.btn-search:hover, .btn-search:focus
+	background-color: #259b24
+	color: #FFFFFF

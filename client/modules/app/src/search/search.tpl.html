@@ -1,37 +1,93 @@
 <div class="row">
-    <div class="options">
-        <div class="col-sm-4">
-            <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carType">
-              TIPO
-            </button>
+     <div class="search-text col-xs-12">
+        <h1>FACÍL DE ENCONTRAR</h1>
 
-            <div id="carType" class="collapse">
-                <p>
-                    asdfasdfasdfhakshjdgfjka sgdfjkagsdjfkagsdjkfgaksdfgakjshdg fjahsdgfjkasgfjkhasdgfjhasdgfj
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carEngine">
-              MOTOR
-            </button>
-
-            <div id="carEngine" class="collapse">
-                <p>
-                    asdfasdfasdfhakshjdgfjka sgdfjkagsdjfkagsdjkfgaksdfgakjshdg fjahsdgfjkasgfjkhasdgfjhasdgfj
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carPrice">
-              PRECIO
-            </button>
-
-            <div id="carPrice" class="collapse">
-                <p>
-                    asdfasdfasdfhakshjdgfjka sgdfjkagsdjfkagsdjkfgaksdfgakjshdg fjahsdgfjkasgfjkhasdgfjhasdgfj
-                </p>
-            </div>
-        </div>
+        <p class="lead">Solo dinos cuales son tus preferencias<br> y nosotros haremos el resto por ti.</p>
     </div>
 </div>
+<div class="row">
+    <div class="options">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="btn btn-option" data-toggle="collapse" data-target="#carType" ng-disable="{{type == ''}}">
+                  TIPO <span class="icon ion-ios7-checkmark-empty" ng-show="type != ''"></span>
+                </div>
+
+                <div id="carType" class="collapse">
+                    <div class="option" data-toggle="collapse" data-target="#carType" ng-click="setType('coupe')">
+                        Coupe
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carType" ng-click="setType('hatchback')">
+                        Hatchback
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carType" ng-click="setType('sedan')">
+                        Sedan
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carType" ng-click="setType('pickup')">
+                        Pickup
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carType" ng-click="setType('minivan')">
+                        Minivan
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carType" ng-click="setType('suv')">
+                        Suv
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carEngine">
+                  MOTOR <span class="icon ion-ios7-checkmark-empty" ng-show="engine != ''"></span>
+                </button>
+
+                <div id="carEngine" class="collapse">
+                    <div class="option" data-toggle="collapse" data-target="#carEngine" ng-click="setEngine('4 Cilindros')">
+                        4 Cilindros
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carEngine" ng-click="setEngine('5 Cilindros')">
+                        5 Cilindros
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carEngine" ng-click="setEngine('6 Cilindros')">
+                        6 Cilindros
+                    </div>
+                    <div class="option" data-toggle="collapse" data-target="#carEngine" ng-click="setEngine('8 Cilindros')">
+                        8 Cilindros
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carPrice">
+                  PRECIO <span class="icon ion-ios7-checkmark-empty" ng-show="price != ''"></span>
+                </button>
+
+                <div id="carPrice" class="collapse">
+                    <div class="option option-price">
+                        Más de: {{minPrice | currency}}
+                    </div>
+                    <div class="option option-price">
+                        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="50000" data-slider-max="400000" data-slider-step="5000" data-slider-tooltip="hide" data-slider-value="150000"/>
+                    </div>
+                    <div class="option option-price">
+                        Menos de: {{maxPrice | currency}}
+                    </div>
+                    <div class="option option-price">
+                        <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="50000" data-slider-max="400000" data-slider-step="5000" data-slider-tooltip="hide" data-slider-value="150000"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4" ng-show="type != '' && engine != ''">
+                <button type="button" class="btn btn-search">
+                      BUSCAR
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $('#ex1').slider();
+    $('#ex2').slider();
+</script>

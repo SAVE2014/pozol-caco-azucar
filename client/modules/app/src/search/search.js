@@ -11,7 +11,28 @@ angular.module('app.search', ['ngRoute'])
 
     .controller('SearchController', function($scope, $routeParams) {
 
-        $scope.searchText  =  $routeParams.wordName || '';
+        $scope.type = '';
+        $scope.engine = '';
+        $scope.price = '';
 
+
+        $("#ex1").on('slide', function(slideEvt) {
+            $scope.minPrice = slideEvt.value;
+        });
+
+        $scope.maxPrice = $('#ex2').slider();
+
+
+        $scope.setType = function(type){
+            $scope.type = type;
+        };
+
+        $scope.setEngine = function(engine){
+            $scope.engine = engine;
+        };
+
+        $scope.setPrice = function(price){
+            $scope.price = price;
+        };
     })
 ;
