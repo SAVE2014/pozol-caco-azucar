@@ -5,6 +5,7 @@ angular.module('admin', [
     'ui.router',
     'restangular',
     'angular-growl',
+    'ng-file-upload',
     'admin.front',
     'admin.add',
     'admin.items',

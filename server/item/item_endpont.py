@@ -33,11 +33,11 @@ class ItemEndpoint(webapp2.RequestHandler):
                 item['created'] = i.created.date().strftime("%d, %b %Y")
                 item['updated'] = i.created.date().strftime("%d, %b %Y")
                 items_dict.append(item)
-
             self.response.out.write(json.dumps(items_dict))
 
     def post(self, slash, item_id):
-        item_json = cgi.escape(self.request.body)
+        item_json = json.loads(cgi.escape(self.request.body))
+        logging.info(item_json)
         item = read_json(item_json)
         item.put()
 
@@ -46,11 +46,11 @@ class ItemEndpoint(webapp2.RequestHandler):
         item = item_key.get()
 
         item_json = json.loads(self.request.body)
-
+        logging.info(item_json)
         item.model = item_json['model']
         item.type = item_json['type']
         item.brand = item_json['brand']
-        item.image = item_json['image']
+        # item.images = item_json['images']
         item.price = float(item_json['price'])
         item.description = item_json['description']
         item.updated = datetime.datetime.now()
@@ -60,10 +60,10 @@ class ItemEndpoint(webapp2.RequestHandler):
 
 def read_json(passed_dict):
     return Item(
-        name=passed_dict['model'],
+        model=passed_dict['model'],
         type=passed_dict['type'],
         brand=passed_dict['brand'],
-        image=passed_dict['image'],
+        images=passed_dict['images'],
         price=float(passed_dict['price']),
         description=passed_dict['description']
     )

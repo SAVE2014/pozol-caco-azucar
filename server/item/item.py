@@ -12,4 +12,4 @@ class Item(ndb.Model):
     brand = ndb.StringProperty(indexed=True)
     price = ndb.FloatProperty(indexed=True)
     description =ndb.TextProperty()
-    image = ndb.StringProperty()
+    images = ndb.JsonProperty(repeated=True)

@@ -1,3 +1,5 @@
+<div growl></div>
+
 <div class="add-view" >
     <div class="row add-row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
@@ -38,12 +40,18 @@
                 </textarea>
             </div>
 
-            <div class="form-group">
-                <label for="">Fotos</label>
-
-                <img src="client/manage/assets/img/itemDefault.png" alt="Foto de articulo" class="img-thumbnail">
+            <div class="form-group" ng-show="addItem.images.length">
+                <div class="row">
+                    <div class="col-xs-3" ng-repeat="image in addItem.images track by $index">
+                        <img ng-src="{{ image.url }}" alt="Foto de articulo" class="img-responsive">
+                    </div>
+                </div>
             </div>
 
+            <div class="form-group" >
+                <label for="addImage">Agregar Foto</label>
+                <input type="file" id="addImage" class="" ng-file-select="onSelectFile($files, $resp)">
+			</div>
 
             <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
                 Guardar
