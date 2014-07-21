@@ -13,7 +13,7 @@ angular.module('admin.add', [])
             });
     })
 
-    .factory('AddItemSvc', function(ItemsSvc){
+    .factory('AddItemSvc', function(ItemsSvc, growl){
 
         var service = {};
         service.model = '';
@@ -22,32 +22,35 @@ angular.module('admin.add', [])
         service.brand = '';
         service.description = '';
         service.images = [];
+
         service.addImage = function(image){
             service.images.push(image);
         };
 
         service.saveItem = function() {
             console.log(JSON.stringify(service, null, '\t'));
-            ItemsSvc.post(service);
-            service.model = '';
-            service.type = '';
-            service.price = '';
-            service.brand = '';
-            service.description = '';
-            service.images = [];
+            ItemsSvc.post(service).then(function(addedBuilding) {
+                    service.model = '';
+                    service.type = '';
+                    service.price = '';
+                    service.brand = '';
+                    service.description = '';
+                    service.images = [];
+                    growl.addSuccessMessage("Articulo agregado exitosamente");
+                }, function() {
+                    growl.addErrorMessage("Error al agregar articulo");
+            });
         };
 
         return service;
     })
 
-    .controller('ItemsAddController', function ($scope, $upload, AddItemSvc, growl) {
+    .controller('ItemsAddController', function ($scope, $upload, AddItemSvc) {
 
         $scope.addItem = AddItemSvc;
 
-
         $scope.saveItem = function(){
             AddItemSvc.saveItem();
-            growl.addSuccessMessage("Articulo agregado exitosamente");
         };
 
         $scope.imageJson = {};

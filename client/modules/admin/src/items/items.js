@@ -17,7 +17,7 @@ angular.module('admin.items', [])
         return Restangular.all('items').getList().$object;
     })
 
-    .factory('EditItemSvc', function(){
+    .factory('EditItemSvc', function(growl){
         var service = {};
 
         service.item = {};
@@ -27,14 +27,18 @@ angular.module('admin.items', [])
         };
 
         service.updateItem = function(){
-            service.item.put();
+            service.item.put().then(function(addedBuilding) {
+                    growl.addSuccessMessage("Articulo editado exitosamente");
+                }, function() {
+                    growl.addErrorMessage("Error al editado articulo");
+            });
         };
 
         return service;
     })
 
 
-    .controller('ItemsController', function ($scope, ItemsSvc, EditItemSvc, growl) {
+    .controller('ItemsController', function ($scope, ItemsSvc, EditItemSvc) {
         $scope.items = ItemsSvc;
 
         $scope.editItem = EditItemSvc;
@@ -57,7 +61,6 @@ angular.module('admin.items', [])
 
         $scope.saveItem = function(){
             EditItemSvc.updateItem();
-            growl.addSuccessMessage("Articulo editado exitosamente ");
         };
 
     })
