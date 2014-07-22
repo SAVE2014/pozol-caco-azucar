@@ -13,14 +13,12 @@ angular.module('app.search', ['ngRoute'])
 
         $scope.type = '';
         $scope.engine = '';
-        $scope.price = '';
+        $scope.price = 200000;
+        $scope.minPrice = 0;
 
 
-        $("#ex1").on('slide', function(slideEvt) {
-            $scope.minPrice = slideEvt.value;
-        });
 
-        $scope.maxPrice = $('#ex2').slider();
+
 
 
         $scope.setType = function(type){

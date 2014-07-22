@@ -48,7 +48,8 @@ module.exports = {
             '<%= manage %>/vendor/angular-filters/dist/angular-filters.js',
             '<%= manage %>/vendor/angular-ui-router/release/angular-ui-router.js',
             '<%= manage %>/vendor/angular-resource/angular-resource.js',
-            '<%= manage %>/vendor/angular-route/angular-route.js'
+            '<%= manage %>/vendor/angular-route/angular-route.js',
+            '<%= manage %>/vendor/angular-rangeslider/angular.rangeSlider.js'
         ],
 
 		css: [
@@ -56,7 +57,8 @@ module.exports = {
             'vendor/bootstrap/dist/css/bootstrap.css.map',
             'vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css',
             'vendor/angular-motion/dist/angular-motion.css',
-            'vendor/selectize/dist/css/selectize.default.css'
+            'vendor/selectize/dist/css/selectize.default.css',
+            'vendor/angular-rangeslider/angular.rangeSlider.css'
         ],
 
         images: [

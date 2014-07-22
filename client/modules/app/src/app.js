@@ -3,6 +3,7 @@ angular.module('app', [
     'ngResource',
     'ui.router',
     'restangular',
+    'ui-rangeSlider',
     'ngSanitize',
     'app.front',
     'app.search',

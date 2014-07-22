@@ -56,28 +56,22 @@
             </div>
             <div class="col-sm-4">
                 <button type="button" class="btn btn-option" data-toggle="collapse" data-target="#carPrice">
-                  PRECIO <span class="icon ion-ios7-checkmark-empty" ng-show="price != ''"></span>
+                  PRECIO <span class="icon ion-ios7-checkmark-empty" ng-show="price != 200000"></span>
                 </button>
 
                 <div id="carPrice" class="collapse">
-                    <div class="option option-price">
-                        Más de: {{minPrice | currency}}
+                    <div class="option option-price" >
+                        {{price | currency}}
                     </div>
                     <div class="option option-price">
-                        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="50000" data-slider-max="400000" data-slider-step="5000" data-slider-tooltip="hide" data-slider-value="150000"/>
-                    </div>
-                    <div class="option option-price">
-                        Menos de: {{maxPrice | currency}}
-                    </div>
-                    <div class="option option-price">
-                        <input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="50000" data-slider-max="400000" data-slider-step="5000" data-slider-tooltip="hide" data-slider-value="150000"/>
+                        <div range-slider min="50000" max="400000" model-max="price" step="5000" show-values="false" pin-handle="min"></div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-4" ng-show="type != '' && engine != ''">
+            <div class="col-sm-4 col-sm-offset-4" ng-show="type != '' && engine != '' && price != 200000">
                 <button type="button" class="btn btn-search">
                       BUSCAR
                 </button>
