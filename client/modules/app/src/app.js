@@ -7,6 +7,7 @@ angular.module('app', [
     'ngSanitize',
     'app.front',
     'app.search',
+    'app.details',
     'templates-app'])
 
     .config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {

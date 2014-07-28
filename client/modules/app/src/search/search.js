@@ -16,20 +16,25 @@ angular.module('app.search', ['ngRoute'])
     .controller('SearchController', function($scope, $routeParams, ItemsSvc) {
 
         $scope.searchMode = true;
-        $scope.type = '';
-        $scope.engine = '';
-        $scope.price = 200000;
+        $scope.search = {};
+        $scope.type = 'Tipo de Carro';
+        $scope.engine = 'Motor';
+        $scope.price = 'Precio';
+        $scope.minPrice = 50000;
+        $scope.maxPrice = 400000;
 
         $scope.setType = function(type){
+            $scope.search.type = type;
             $scope.type = type;
         };
 
         $scope.setEngine = function(engine){
-            $scope.engine = engine;
+            $scope.search.engine = engine;
+            $scope.engine = engine + ' Cilindros';
         };
 
         $scope.setPrice = function(price){
-            $scope.price = price;
+            $scope.search.price = price;
         };
         
         $scope.search = function () {

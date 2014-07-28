@@ -38,7 +38,6 @@ module.exports = {
 			'<%= manage %>/vendor/lodash/dist/lodash.js',
 			'<%= manage %>/vendor/highcharts/highcharts.src.js',
             '<%= manage %>/vendor/bootstrap/dist/js/bootstrap.js',
-            '<%= manage %>/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js',
 			'<%= manage %>/vendor/restangular/dist/restangular.js',
 			'<%= manage %>/vendor/angular-moment/angular-moment.js',
 			'<%= manage %>/vendor/moment-range/lib/moment-range.js',
@@ -55,7 +54,6 @@ module.exports = {
 		css: [
             'vendor/bootstrap/dist/css/bootstrap.css',
             'vendor/bootstrap/dist/css/bootstrap.css.map',
-            'vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css',
             'vendor/angular-motion/dist/angular-motion.css',
             'vendor/selectize/dist/css/selectize.default.css',
             'vendor/angular-rangeslider/angular.rangeSlider.css'
