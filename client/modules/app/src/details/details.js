@@ -1,6 +1,6 @@
 angular.module('app.details', [])
 
-    .config(function($stateProvider, $urlRouterProvider){
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('details', {
                 url: '/details/:itemId',
@@ -9,10 +9,12 @@ angular.module('app.details', [])
             });
     })
 
-    .controller('DetailsController', function ($scope, $stateParams, ItemsSvc) {
-        $scope.itemId = $stateParams.itemId;
+    .controller('DetailsController', function ($scope, $stateParams, Restangular) {
+        var itemId = $stateParams.itemId;
+        console.log(itemId);
 
-        $scope.item = ItemsSvc.get([ $scope.itemId]);
+        $scope.item = Restangular.one('items', itemId);
+        console.log($scope.item);
 
     })
 ;

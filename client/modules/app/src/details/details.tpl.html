@@ -1,1 +1,26 @@
-<h1>{{ itemId }}</h1>
+<div class="carousel-view">
+    <div class="flexslider">
+        <ul class="slides">
+            <li data-thumb="slide1-thumb.jpg">
+                <img ng-src="{{item.images[0].url}}"/>
+            </li>
+            <li data-thumb="slide2-thumb.jpg">
+                <img src="slide2.jpg"/>
+            </li>
+            <li data-thumb="slide3-thumb.jpg">
+                <img src="slide3.jpg"/>
+            </li>
+            <li data-thumb="slide4-thumb.jpg">
+                <img src="slide4.jpg"/>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $('.flexslider').flexslider({
+        animation: "slide",
+        controlNav: "thumbnails"
+    });
+
+</script>
