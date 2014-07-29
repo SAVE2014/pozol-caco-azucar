@@ -9,12 +9,14 @@ angular.module('app.details', [])
             });
     })
 
-    .controller('DetailsController', function ($scope, $stateParams, Restangular) {
+    .factory('ItemDetailsSvc', function( Restangular , $stateParams){
         var itemId = $stateParams.itemId;
-        console.log(itemId);
+        return Restangular.one('items', itemId).get();
+    })
 
-        $scope.item = Restangular.one('items', itemId);
+    .controller('DetailsController', function ($scope, $stateParams, ItemDetailsSvc) {
+
+        $scope.item = ItemDetailsSvc;
         console.log($scope.item);
-
     })
 ;

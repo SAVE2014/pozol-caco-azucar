@@ -1,4 +1,4 @@
-<div class="search-view" ng-show="false">
+<div class="search-view" ng-show="searchMode">
     <div class="row">
          <div class="search-text col-xs-12">
             <h1>FACÍL DE ENCONTRAR</h1>
@@ -77,7 +77,7 @@
      </div>
 </div>
 
-<div class="results-view" ng-hide="false" >
+<div class="results-view" ng-hide="searchMode" >
     <div class="row">
          <div class="">
              <h1>{{ items.length}} Resultados</h1>
@@ -97,7 +97,7 @@
                     <span class="price">
                         {{ result.price | currency }}
                     </span>
-                    <a ng-href="#/details/{{result.id}}">
+                    <a ui-sref="details({ itemId: result.id})">
                         <button class="btn-more">
                             Detalles
                         </button>

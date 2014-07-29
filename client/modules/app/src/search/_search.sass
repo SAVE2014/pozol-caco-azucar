@@ -17,7 +17,7 @@
 	.ngrs-range-slider:hover, .ngrs-range-slider:focus
 		box-shadow: none
 		outline: none
-		border-color: #bdbdbd
+		border-color: #FFFFFF
 
 	.options
 		+flexbox
@@ -44,15 +44,24 @@
 		position: relative
 		width: 90%
 		margin: 0px auto
-		color: #fff
+		color: #FFFFFF
+		-webkit-transform-style: preserve-3d
+		-moz-transform-style: preserve-3d
+		-ms-transform-style: preserve-3d
 		transform-style: preserve-3d
 		perspective: 1500
 
 		&.flip
 			.front
+				-webkit-transform: rotateX(180deg)
+				-moz-transform: rotateX(180deg)
+				-ms-transform: rotateX(180deg)
 				transform: rotateX(180deg)
 
 			.back
+				-webkit-transform: rotateX(0deg)
+				-moz-transform: rotateX(0deg)
+				-ms-transform: rotateX(0deg)
 				transform: rotateX(0deg)
 
 		span
@@ -62,12 +71,18 @@
 			font-size: 16px
 
 		.front, .back
+			-webkit-transition: all 0.5s cubic-bezier(.11,1.61,.69,.64)
+			-moz-transition: all 0.5s cubic-bezier(.11,1.61,.69,.64)
+			-ms-transition: all 0.5s cubic-bezier(.11,1.61,.69,.64)
 			transition: all 0.5s cubic-bezier(.11,1.61,.69,.64)
 
 		.front
 			height: 60px
 			width: 100%
-			background-color: #96cc51
+			background-color: #A0D468 //#96cc51
+			-webkit-backface-visibility: hidden
+			-moz-backface-visibility: hidden
+			-ms-backface-visibility: hidden
 			backface-visibility: hidden
 			cursor: pointer
 			border-radius: 2px
@@ -85,11 +100,18 @@
 				border-top: 5px solid #FFFFFF
 
 			&:hover
-				background-color: #89bc4b
+				background-color: #8CC152 //#89bc4b
 
 		.back
+			-webkit-transform: rotateX(180deg)
+			-moz-transform: rotateX(180deg)
+			-ms-transform: rotateX(180deg)
 			transform: rotateX(180deg)
+			-webkit-backface-visibility: hidden
+			-moz-backface-visibility: hidden
+			-ms-backface-visibility: hidden
 			backface-visibility: hidden
+
 
 		ul
 			position: absolute
@@ -119,13 +141,16 @@
 			margin: 50px auto
 			height: 60px
 			width: 28%
-			background-color: #70bef8
+			background-color: #FFCE54
 			cursor: pointer
 			border-radius: 2px
 			color: #FFFFFF
 			text-align: center
 			line-height: 60px
 			box-shadow: 0 3px 0 rgba(0,0,0,0.1)
+
+		.btn-search:hover, .btn-search:focus
+			background-color: #FCBB42
 
 
 .results-view
@@ -134,7 +159,7 @@
 	color: #647376
 
 	.result
-		height: 90px
+		height: 105px
 		margin-bottom: 15px
 		background-color: #ffffff
 		padding: 0px
@@ -142,7 +167,8 @@
 		+flexbox
 
 		.result-image
-			+flex(3)
+			width: 140px
+			height: 105px
 			@media (max-width: 479px)
 				display: none
 			height: 100%
@@ -173,19 +199,20 @@
 			border-left: solid 1px #e3e7ea
 
 			.price
-				margin: 10px
+				margin: 15 px 10px
 				font-size: 18px
 				display: block
-				margin-bottom: 15px
 
 			.btn-more
-				width: calc(100% - 10px)
+				width: calc(100% - 20px)
 				background-color: #96cc52
 				color: white
 				border-radius: 2px
 				border: none
 				letter-spacing: 1px
 				font-weight: 300
+				font-size: 18px
+				line-height: 28px
 
 			.btn-more:hover, .btn-more:focus
 				outline: none

@@ -15,6 +15,10 @@ angular.module('app', [
         RestangularProvider.setBaseUrl('/api/v1');
     })
 
+    .run(function($rootScope, $state){
+        $rootScope.$state = $state;
+    })
+
     .controller('AppController', function($scope, $routeParams) {
 
 
