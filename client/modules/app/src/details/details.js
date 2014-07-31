@@ -11,10 +11,10 @@ angular.module('app.details', [])
 
     .factory('ItemDetailsSvc', function( Restangular , $stateParams){
         var itemId = $stateParams.itemId;
-        return Restangular.one('items', itemId).get();
+        return Restangular.one('items', itemId).get().$object;
     })
 
-    .controller('DetailsController', function ($scope, $stateParams, ItemDetailsSvc) {
+    .controller('DetailsController', function ($scope, ItemDetailsSvc) {
 
         $scope.item = ItemDetailsSvc;
         console.log($scope.item);

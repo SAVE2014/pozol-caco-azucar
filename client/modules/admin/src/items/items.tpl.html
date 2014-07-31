@@ -12,27 +12,27 @@
         </form>
     </div>
 
-    <div class="row items-container" >
+    <div class="row items-container">
         <div class="table-responsive table-items col-xs-12 col-md-8 col-md-offset-2">
             <table class="table table-hover table-bordered">
                 <thead class="items-table-head">
-                    <tr>
-                        <th >Modelo</td>
-                        <th >Tipo</th>
-                        <th >Precio</th>
-                        <th >Marca</th>
-                        <th class="no-small-screen">Creado</th>
-                    </tr>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Tipo</th>
+                    <th>Precio</th>
+                    <th>Marca</th>
+                    <th class="no-small-screen">Creado</th>
+                </tr>
                 </thead>
 
                 <tbody class="items-table-body">
-                    <tr ng-repeat="item in items | filter:searcText" ng-click="setEditItem(item)">
-                        <td >{{ item.model }}</td>
-                        <td >{{ item.type }}</td>
-                        <td >{{ item.price | currency }}</td>
-                        <td >{{ item.brand }}</td>
-                        <td class="no-small-screen">{{ item.created }}</td>
-                    </tr>
+                <tr ng-repeat="item in items | filter:searcText" ng-click="setEditItem(item)">
+                    <td>{{ item.model }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.price | currency }}</td>
+                    <td>{{ item.brand }}</td>
+                    <td class="no-small-screen">{{ item.created }}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -42,9 +42,10 @@
 <div class="edit-view" ng-show="editView">
     <div class="row edit-btn-row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
-            <button type="button" class="btn btn-default" ng-click="hideDetails()"> Ver todos los articulos </button>
+            <button type="button" class="btn btn-default" ng-click="hideDetails()"> Ver todos los vehiculos</button>
 
-            <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Editar</button>
+            <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Editar
+            </button>
         </div>
     </div>
 
@@ -52,27 +53,90 @@
         <form role="form">
             <div class="form-group">
                 <label for="itemModel">Modelo</label>
-                <input type="text" ng-model="editItem.item.model" ng-disabled="disableInputs" class="form-control" id="itemModel" placeholder="Modelo del articulo">
-            </div>
-
-            <div class="form-group">
-                <label for="itemType">Tipo</label>
-                <input type="text" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control" id="itemType" placeholder="Tipo de articulo">
-            </div>
-
-            <div class="form-group">
-                <label for="itemPrice">Precio</label>
-                <input type="text" ng-model="editItem.item.price" ng-disabled="disableInputs" class="form-control" id="itemPrice" placeholder="Precio del articulo" value="editItem.item.price|currency">
+                <input type="text" ng-model="editItem.item.model" ng-disabled="disableInputs" class="form-control"
+                       id="itemModel" placeholder="Modelo del vehiculo">
             </div>
 
             <div class="form-group">
                 <label for="itemBrand">Marca</label>
-                <input type="text" ng-model="editItem.item.brand" ng-disabled="disableInputs" class="form-control" id="itemBrand" placeholder="Marca del articulo">
+                <input type="text" ng-model="editItem.item.brand" ng-disabled="disableInputs" class="form-control"
+                       id="itemBrand" placeholder="Marca del vehiculo">
+            </div>
+
+            <div class="form-group">
+                <label for="itemType">Tipo</label>
+                <!--<input type="text" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control"-->
+                <!--id="itemType" placeholder="Tipo de articulo">-->
+                <select id="itemType" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control">
+                    <option>Coupe</option>
+                    <option>Hatchback</option>
+                    <option>Minivan</option>
+                    <option>Pickup</option>
+                    <option>Sedan</option>
+                    <option>Suv</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="itemCylinders">Cilindraje</label>
+                <select id="itemCylinders" ng-model="editItem.item.cylinders"  ng-disabled="disableInputs" class="form-control">
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="itemEngine">Motor</label>
+                <select id="itemEngine" ng-model="editItem.item.engine"  ng-disabled="disableInputs" class="form-control">
+                    <option value="1.5">1.5</option>
+                    <option value="1.6">1.6</option>
+                    <option value="1.8">1.8</option>
+                    <option value="2.0">2.0</option>
+                    <option value="2.1">2.1</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3.0">3.0</option>
+                    <option value="3.2">3.2</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4.0">4.0</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="itemPrice">Precio</label>
+                <input type="text" ng-model="editItem.item.price" ng-disabled="disableInputs" class="form-control"
+                       id="itemPrice" placeholder="Precio del vehiculo" value="editItem.item.price|currency">
+            </div>
+
+            <div class="form-group">
+                <label for="itemPower">Potencia</label>
+                <input type="text" ng-model="editItem.item.power" ng-disabled="disableInputs" class="form-control"
+                       id="itemPower" placeholder="Potencia del vehiculo" >
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="editItem.item.airbags"  ng-disabled="disableInputs" > Bolsas de aire
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="editItem.item.sunroof"  ng-disabled="disableInputs" > Quemacocos
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="editItem.item.airBreaks" ng-disabled="disableInputs" > Frenos de aire
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="editItem.item.gps" ng-disabled="disableInputs" > GPS
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="editItem.item.blueTooth"  ng-disabled="disableInputs" > Manos libres
+                </label>
             </div>
 
             <div class="form-group">
                 <label for="itemDescription">Descripción</label>
-                <textarea id="itemDescription" ng-model="editItem.item.description" ng-disabled="disableInputs" class="form-control" rows="5" placeholder="Descripción del articulo">
+                <textarea id="itemDescription" ng-model="editItem.item.description" ng-disabled="disableInputs"
+                          class="form-control" rows="5" placeholder="Descripción del vehiculo">
 
                 </textarea>
             </div>

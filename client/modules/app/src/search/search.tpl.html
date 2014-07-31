@@ -1,4 +1,4 @@
-<div class="search-view" ng-show="searchMode">
+<div class="search-view">
     <div class="row">
          <div class="search-text col-xs-12">
             <h1>FACÍL DE ENCONTRAR</h1>
@@ -33,16 +33,16 @@
                     <span class="ion-speedometer"></span>
                 </div>
 
-                <div class="dropdown" ng-init="engineBool = false" ng-class="{flip: engineBool}" ng-click="engineBool = !engineBool">
+                <div class="dropdown" ng-init="cylindersBool = false" ng-class="{flip: cylindersBool}" ng-click="cylindersBool = !cylindersBool">
                     <div class="front">
-                        <span>{{engine}}</span>
+                        <span>{{ cylinders }} Cilindros</span>
                     </div>
                     <div class="back">
                         <ul>
-                            <li ng-click="setEngine(4)" >4 cilindros</li>
-                            <li ng-click="setEngine(5)" >5 cilindros</li>
-                            <li ng-click="setEngine(6)" >6 cilindros</li>
-                            <li ng-click="setEngine(8)" >8 cilindros</li>
+                            <li ng-click="setCylinders(4)" >4 cilindros</li>
+                            <li ng-click="setCylinders(5)" >5 cilindros</li>
+                            <li ng-click="setCylinders(6)" >6 cilindros</li>
+                            <li ng-click="setCylinders(8)" >8 cilindros</li>
                         </ul>
                     </div>
                 </div>
@@ -71,42 +71,11 @@
     </div>
 
     <div class="search">
-            <div class="btn-search" ng-show="type != 'Tipo de Carro' && engine != 'Motor' && ( minPrice != 50000 || maxPrice != 400000)" ng-click="search()">
+        <a ui-sref="results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })">
+            <div class="btn-search" ng-show="type != 'Tipo de Carro' && cylinders != 'Motor' && ( minPrice != 50000 || maxPrice != 400000)" >
                 <span>BUSCAR</span>
             </div>
+        </a>
      </div>
-</div>
-
-<div class="results-view" ng-hide="searchMode" >
-    <div class="row">
-         <div class="">
-             <h1>{{ items.length}} Resultados</h1>
-         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-repeat="result in items">
-            <div class="result">
-                <div class="result-image">
-                    <img ng-src="{{ result.images[0].url}}" alt=""/>
-                </div>
-                <div class="result-content">
-                    <span>{{result.model}}</span>
-                    <span>{{result.brand}}</span>
-                </div>
-                <div class="result-price">
-                    <span class="price">
-                        {{ result.price | currency }}
-                    </span>
-                    <a ui-sref="details({ itemId: result.id})">
-                        <button class="btn-more">
-                            Detalles
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </div>
 

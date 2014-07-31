@@ -10,9 +10,10 @@ angular.module('app', [
     'app.details',
     'templates-app'])
 
-    .config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
         RestangularProvider.setBaseUrl('/api/v1');
+        $locationProvider.html5Mode(true);
     })
 
     .run(function($rootScope, $state){

@@ -1,4 +1,93 @@
 .carousel-view
 	width: 60%
-	margin-left: 20%
+	margin: 0px auto
+
+	.carousel
+		position: relative
+		width: 600px
+		height: 300px
+		overflow: hidden
+		box-shadow: 0 0 2px 1px #ccc
+
+		input
+			position: absolute
+			z-index: 3
+			margin: 0
+			top: 125px
+			width: 50px
+			height: 50px
+			left: 10px
+			-webkit-appearance: none
+			-moz-appearance: none
+			-ms-appearance: none
+			appearance: none
+
+		input:before
+			position: absolute
+			content: "\2329"
+			background: rgba(0, 0, 0, 0.3)
+			border-radius: 50%
+			color: #FFFFFF
+			font-size: 25px
+			width: 50px
+			height: 50px
+			line-height: 50px
+			padding-left: 7px
+
+		input:hover, input:focus
+			outline: none
+
+		input:checked ~ input:before
+			content: "\232A"
+			padding-left: 22px
+
+		input:checked
+			display: none
+
+		input:checked ~ input
+			right: 10px
+			left: auto
+
+		input:checked + div + input
+			z-index: 4
+
+		input + div
+			position: absolute
+			z-index: 1
+
+		input:checked + div
+			z-index: 2
+
+		input + div
+			-webkit-transform: translate3D(-100%, 0, 0)
+			-moz-transform: translate3d(-100%, 0, 0)
+			-ms-transform: translate3d(-100%, 0, 0)
+			transform: translate3D(-100%, 0, 0)
+			-webkit-transition: transform .5s ease-in-out
+			-moz-transition: transform .5s ease-in-out
+			-ms-transition: transform .5s ease-in-out
+			transition: transform .5s ease-in-out
+
+		input:checked + div
+			-webkit-transform: translate3D(0, 0, 0)
+			-moz-transform: translate3d(0, 0, 0)
+			-ms-transform: translate3d(0, 0, 0)
+			transform: translate3D(0, 0, 0)
+
+		input:checked + div ~ div
+			-webkit-transform: translate3d(100%, 0, 0)
+			-moz-transform: translate3d(100%, 0, 0)
+			-ms-transform: translate3d(100%, 0, 0)
+			transform: translate3d(100%, 0, 0)
+
+		div
+			width: 100%
+			height: 100%
+
+			img
+				width: 100%
+
+
+
+
 

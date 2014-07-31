@@ -1,0 +1,33 @@
+<div class="results-view" >
+    <div class="row">
+         <div class="">
+             <h1>{{ items.length}} Resultados</h1>
+         </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-repeat="result in items">
+            <div class="result">
+                <div class="result-image">
+                    <img ng-src="{{ result.images[0].url}}" alt=""/>
+                </div>
+                <div class="result-content">
+                    <span>{{result.model}}</span>
+                    <span>{{result.brand}}</span>
+                </div>
+                <div class="result-price">
+                    <span class="price">
+                        {{ result.price | currency }}
+                    </span>
+                    <a ui-sref=".details({ itemId: result.id})">
+                        <button class="btn-more">
+                            Detalles
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

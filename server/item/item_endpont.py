@@ -48,11 +48,19 @@ class ItemEndpoint(webapp2.RequestHandler):
         item_json = json.loads(self.request.body)
         logging.info(item_json)
         item.model = item_json['model']
-        item.type = item_json['type']
         item.brand = item_json['brand']
-        # item.images = item_json['images']
-        item.price = float(item_json['price'])
+        item.type = item_json['type']
+        item.cylinders = int(item_json['cylinders'])
+        item.engine = float(item_json['engine'])
+        item.price = int(item_json['price'])
+        item.power = int(item_json['power'])
+        item.airbags = item_json['airbags']
+        item.sunroof = item_json['sunroof']
+        item.airBreaks = item_json['airBreaks']
+        item.gps = item_json['gps']
+        item.blueTooth = item_json['blueTooth']
         item.description = item_json['description']
+        item.images = item_json['images']
         item.updated = datetime.datetime.now()
 
         item.put()
@@ -61,9 +69,17 @@ class ItemEndpoint(webapp2.RequestHandler):
 def read_json(passed_dict):
     return Item(
         model=passed_dict['model'],
-        type=passed_dict['type'],
         brand=passed_dict['brand'],
-        images=passed_dict['images'],
-        price=float(passed_dict['price']),
-        description=passed_dict['description']
+        type=passed_dict['type'],
+        cylinders=int(passed_dict['cylinders']),
+        engine=float(passed_dict['engine']),
+        price=int(passed_dict['price']),
+        power=int(passed_dict['power']),
+        airbags=passed_dict['airbags'],
+        sunroof=passed_dict['sunroof'],
+        airBreaks=passed_dict['airBreaks'],
+        gps=passed_dict['gps'],
+        blueTooth=passed_dict['blueTooth'],
+        description=passed_dict['description'],
+        images=passed_dict['images']
     )

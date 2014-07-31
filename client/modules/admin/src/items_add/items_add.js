@@ -17,9 +17,17 @@ angular.module('admin.add', [])
 
         var service = {};
         service.model = '';
-        service.type = '';
-        service.price = '';
         service.brand = '';
+        service.type = '';
+        service.cylinders = '';
+        service.engine = '';
+        service.price = '';
+        service.power = '';
+        service.airbags = false;
+        service.sunroof = false;
+        service.airBreaks = false;
+        service.gps = false;
+        service.blueTooth = false;
         service.description = '';
         service.images = [];
 
@@ -29,11 +37,19 @@ angular.module('admin.add', [])
 
         service.saveItem = function() {
             console.log(JSON.stringify(service, null, '\t'));
-            ItemsSvc.post(service).then(function(addedBuilding) {
+            ItemsSvc.post(angular.copy(service)).then(function(addedBuilding) {
                     service.model = '';
-                    service.type = '';
-                    service.price = '';
                     service.brand = '';
+                    service.type = '';
+                    service.cylinders = '';
+                    service.engine = '';
+                    service.price = '';
+                    service.power = '';
+                    service.airbags = false;
+                    service.sunroof = false;
+                    service.airBreaks = false;
+                    service.gps = false;
+                    service.blueTooth = false;
                     service.description = '';
                     service.images = [];
                     growl.addSuccessMessage("Articulo agregado exitosamente");

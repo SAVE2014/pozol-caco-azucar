@@ -18,7 +18,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class AppHandler(webapp2.RequestHandler):
 
-    def get(self):
+    def get(self, url):
 
         # qry = Word.query().fetch(projection=[Word.name])
         # names = [ word.name for word in qry]

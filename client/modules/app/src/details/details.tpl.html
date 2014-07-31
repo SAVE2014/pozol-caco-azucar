@@ -1,26 +1,12 @@
 <div class="carousel-view">
-    <div class="flexslider">
-        <ul class="slides">
-            <li data-thumb="{{item.images[0].url}}">
-                <img ng-src="{{ item.images[0].url }}"/>
-            </li>
-            <li data-thumb="slide2-thumb.jpg">
-                <img src="slide2.jpg"/>
-            </li>
-            <li data-thumb="slide3-thumb.jpg">
-                <img src="slide3.jpg"/>
-            </li>
-            <li data-thumb="slide4-thumb.jpg">
-                <img src="slide4.jpg"/>
-            </li>
-        </ul>
+    <div class="carousel">
+        <input type="radio" name="item" ng-repeat-start="image in item.images track by $index " value="{{ $index }}" checked>
+
+        <div ng-repeat-end>
+            <img ng-src="{{ image.url }}">
+        </div>
+    </div>
+    <div>
+
     </div>
 </div>
-
-<script>
-    $('.flexslider').flexslider({
-        animation: "slide",
-        controlNav: "thumbnails"
-    });
-
-</script>

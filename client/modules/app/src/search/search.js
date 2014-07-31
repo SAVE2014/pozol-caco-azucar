@@ -13,24 +13,22 @@ angular.module('app.search', ['ngRoute'])
         return Restangular.all('items').getList().$object;
     })
 
-    .controller('SearchController', function($scope, $routeParams, ItemsSvc) {
+    .controller('SearchController', function($scope ) {
 
         $scope.searchMode = true;
         $scope.search = {};
         $scope.type = 'Tipo de Carro';
-        $scope.engine = 'Motor';
+        $scope.cylinders = '';
         $scope.price = 'Precio';
         $scope.minPrice = 50000;
         $scope.maxPrice = 400000;
 
         $scope.setType = function(type){
-            $scope.search.type = type;
             $scope.type = type;
         };
 
-        $scope.setEngine = function(engine){
-            $scope.search.engine = engine;
-            $scope.engine = engine + ' Cilindros';
+        $scope.setCylinders = function(engine){
+            $scope.cylinders = engine;
         };
 
         $scope.setPrice = function(price){
@@ -41,6 +39,5 @@ angular.module('app.search', ['ngRoute'])
             $scope.searchMode = false;
         };
 
-        $scope.items = ItemsSvc;
     })
 ;

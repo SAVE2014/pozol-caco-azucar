@@ -20,5 +20,5 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/serve/<blob_key:>', handler=DownloadService, name='download-service'),
     webapp2.Route('/admin', handler=AdminHandler, name='admin-home'),
     webapp2.Route('/seed/<:\w*>', handler=SeedEntities, name='seed'),
-    webapp2.Route('/', handler=AppHandler, name='home'),
+    webapp2.Route('<:/.*>', handler=AppHandler, name='home'),
 ], debug=True)

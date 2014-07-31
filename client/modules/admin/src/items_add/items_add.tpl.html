@@ -1,13 +1,13 @@
 <div growl></div>
 
-<div class="add-view" >
+<div class="add-view">
     <div class="row add-row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
             <h1>Instrucciones</h1>
 
             <p>
-                Favor de agregar por lo menos una foto por cada nuevo articulo. Para una major resolucion se recomienda que los fotos sean de 512 x 512 pixeles.
-
+                Favor de agregar por lo menos una foto por cada nuevo articulo. Para una major resolucion se recomienda
+                que los fotos sean de 512 x 512 pixeles.
             </p>
         </div>
     </div>
@@ -15,27 +15,88 @@
         <form role="form">
             <div class="form-group">
                 <label for="itemModel">Modelo</label>
-                <input type="text" ng-model="addItem.model" ng-disabled="disableInputs" class="form-control" id="itemModel" placeholder="Modelo del articulo">
-            </div>
-
-            <div class="form-group">
-                <label for="itemType">Tipo</label>
-                <input type="text" ng-model="addItem.type" ng-disabled="disableInputs" class="form-control" id="itemType" placeholder="Tipo de articulo">
-            </div>
-
-            <div class="form-group">
-                <label for="itemPrice">Precio</label>
-                <input type="text" ng-model="addItem.price" ng-disabled="disableInputs" class="form-control" id="itemPrice" placeholder="Precio del articulo" value="editItem.item.price|currency">
+                <input type="text" ng-model="addItem.model" ng-disabled="disableInputs" class="form-control"
+                       id="itemModel" placeholder="Modelo del vehiculo">
             </div>
 
             <div class="form-group">
                 <label for="itemBrand">Marca</label>
-                <input type="text" ng-model="addItem.brand" ng-disabled="disableInputs" class="form-control" id="itemBrand" placeholder="Marca del articulo">
+                <input type="text" ng-model="addItem.brand" ng-disabled="disableInputs" class="form-control"
+                       id="itemBrand" placeholder="Marca del vehiculo">
+            </div>
+
+            <div class="form-group">
+                <label for="itemType">Tipo</label>
+                <select id="itemType" ng-model="addItem.type" class="form-control">
+                    <option value="Coupe">Coupe</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Minivan">Minivan</option>
+                    <option value="Pickup">Pickup</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Suv">Suv</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="itemCylinders">Cilindraje</label>
+                <select id="itemCylinders" ng-model="addItem.cylinders"  class="form-control">
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="itemEngine">Motor</label>
+                <select id="itemEngine" ng-model="addItem.engine" class="form-control">
+                    <option value="1.5">1.5</option>
+                    <option value="1.6">1.6</option>
+                    <option value="1.8">1.8</option>
+                    <option value="2.0">2.0</option>
+                    <option value="2.1">2.1</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3.0">3.0</option>
+                    <option value="3.2">3.2</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4.0">4.0</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="itemPrice">Precio</label>
+                <input type="text" ng-model="addItem.price" class="form-control"
+                       id="itemPrice" placeholder="Potencia del vehiculo">
+            </div>
+
+            <div class="form-group">
+                <label for="itemPower">Potencia</label>
+                <input type="text" ng-model="addItem.power" class="form-control"
+                       id="itemPower" placeholder="Potencia del vehiculo" >
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="addItem.airbags"> Bolsas de aire
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="addItem.sunroof"> Quemacocos
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="addItem.airBreaks"> Frenos de aire
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="addItem.gps"> GPS
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="addItem.blueTooth"> Manos libres
+                </label>
             </div>
 
             <div class="form-group">
                 <label for="itemDescription">Descripción</label>
-                <textarea id="itemDescription" ng-model="addItem.description" ng-disabled="disableInputs" class="form-control" rows="5" placeholder="Descripción del articulo">
+                <textarea id="itemDescription" ng-model="addItem.description"
+                          class="form-control" rows="5" placeholder="Descripción del vehiculo">
 
                 </textarea>
             </div>
@@ -48,10 +109,10 @@
                 </div>
             </div>
 
-            <div class="form-group" >
+            <div class="form-group">
                 <label for="addImage">Agregar Foto</label>
                 <input type="file" id="addImage" class="" ng-file-select="onSelectFile($files, $resp)">
-			</div>
+            </div>
 
             <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
                 Guardar
