@@ -21,7 +21,7 @@ angular.module('app.search', ['ngRoute'])
         $scope.cylinders = '';
         $scope.price = 'Precio';
         $scope.minPrice = 50000;
-        $scope.maxPrice = 400000;
+        $scope.maxPrice = 1900000;
 
         $scope.setType = function(type){
             $scope.type = type;

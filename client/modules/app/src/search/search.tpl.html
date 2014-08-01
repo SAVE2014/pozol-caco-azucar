@@ -58,8 +58,8 @@
                     </div>
                     <div class="back">
                         <ul>
-                            <li>Mas de {{minPrice | currency}}</li>
-                            <li>Menos de {{maxPrice | currency}}</li>
+                            <li>Mas de {{ minPrice | currency }}</li>
+                            <li>Menos de {{ maxPrice | currency }}</li>
                             <li>
                                 <div range-slider min="50000" max="400000" model-min="minPrice" model-max="maxPrice" step="5000" show-values="false"></div>
                             </li>
@@ -71,8 +71,8 @@
     </div>
 
     <div class="search">
-        <a ui-sref="results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })">
-            <div class="btn-search" ng-show="type != 'Tipo de Carro' && cylinders != 'Motor' && ( minPrice != 50000 || maxPrice != 400000)" >
+        <a ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })"  ng-show="type != 'Tipo de Carro' && cylinders != 'Motor' && ( minPrice != 50000 || maxPrice != 400000)" class="btn-search" >
+            <div >
                 <span>BUSCAR</span>
             </div>
         </a>

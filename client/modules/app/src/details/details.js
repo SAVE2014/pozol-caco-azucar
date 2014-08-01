@@ -2,9 +2,9 @@ angular.module('app.details', [])
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('details', {
+            .state('search.results.details', {
                 url: '/details/:itemId',
-                templateUrl: 'details/details.tpl.html',
+                templateUrl: '/details/details.tpl.html',
                 controller: 'DetailsController'
             });
     })

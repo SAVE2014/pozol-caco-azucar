@@ -7,6 +7,7 @@ angular.module('app', [
     'ngSanitize',
     'app.front',
     'app.search',
+    'app.results',
     'app.details',
     'templates-app'])
 

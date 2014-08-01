@@ -1,10 +1,10 @@
-angular.module('app.search', ['ngRoute'])
+angular.module('app.results', ['ngRoute'])
 
     .config(function($stateProvider, $urlRouterProvider){
         $stateProvider
-            .state('results', {
-                url: '/results/:type/:cylinders/:minPrice/:maxPrice',
-                templateUrl: 'results/results.tpl.html',
+            .state('search.results', {
+                url: '/:type/:cylinders/:minPrice/:maxPrice',
+                templateUrl: '/results/results.tpl.html',
                 controller: 'ResultsController'
             });
     })
@@ -18,7 +18,6 @@ angular.module('app.search', ['ngRoute'])
     })
 
     .controller('ResultsController', function($scope, $routeParams, ItemsSvc) {
-
 
 
         $scope.items = ItemsSvc;
