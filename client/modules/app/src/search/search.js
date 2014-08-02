@@ -4,8 +4,12 @@ angular.module('app.search', ['ngRoute'])
         $stateProvider
             .state('search', {
                 url: '/search',
-                templateUrl: 'search/search.tpl.html',
-                controller: 'SearchController'
+                'views':{
+                    'main':{
+                        templateUrl: 'search/search.tpl.html',
+                        controller: 'SearchController'
+                    }
+                }
             });
     })
 

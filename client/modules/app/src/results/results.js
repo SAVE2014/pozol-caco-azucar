@@ -4,8 +4,12 @@ angular.module('app.results', ['ngRoute'])
         $stateProvider
             .state('search.results', {
                 url: '/:type/:cylinders/:minPrice/:maxPrice',
-                templateUrl: '/results/results.tpl.html',
-                controller: 'ResultsController'
+                'views': {
+                    'main@':{
+                        templateUrl: 'results/results.tpl.html',
+                        controller: 'ResultsController'
+                    }
+                }
             });
     })
 
@@ -14,6 +18,7 @@ angular.module('app.results', ['ngRoute'])
         var cylinders = $stateParams.cylinders;
         var minPrice = $stateParams.minPrice;
         var maxPrice = $stateParams.maxPrice;
+        //TODO: return items based on parameters...
         return Restangular.all('items').getList().$object;
     })
 

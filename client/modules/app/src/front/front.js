@@ -4,8 +4,12 @@ angular.module('app.front', [])
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'front/front.tpl.html',
-                controller: 'FrontController'
+                'views': {
+                    'main': {
+                        templateUrl: 'front/front.tpl.html',
+                        controller: 'FrontController'
+                    }
+                }
             });
     })
 
