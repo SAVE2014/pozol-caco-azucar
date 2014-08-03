@@ -1,91 +1,136 @@
-.carousel-view
-	width: 60%
-	margin: 0px auto
+.details-view
+	+flexbox
+	+flex(1)
+	//+align-content(center)
+	+align-items(center)
+	+flex-direction(column)
 
-	.carousel
-		position: relative
-		width: 600px
-		height: 300px
-		overflow: hidden
-		box-shadow: 0 0 2px 1px #ccc
+	.item-headers
+		width: 320px
+		height: 100px
+		background-color: green
 
-		input
-			position: absolute
-			z-index: 3
-			margin: 0
-			top: 125px
-			width: 50px
-			height: 50px
-			left: 10px
-			-webkit-appearance: none
-			-moz-appearance: none
-			-ms-appearance: none
-			appearance: none
+	.item-details
+		+flexbox
+		margin-top: 100px
+		@media (max-width: 639px)
+			+flex-direction(column)
 
-		input:before
-			position: absolute
-			content: "\2329"
-			background: rgba(0, 0, 0, 0.3)
-			border-radius: 50%
-			color: #FFFFFF
-			font-size: 25px
-			width: 50px
-			height: 50px
-			line-height: 50px
-			padding-left: 7px
+		.carousel, .details-content
+			width: 320px
+			height: 214px
+			@media (min-width: 384px)
+				width: 384px
+				height: 256px
+			@media (min-width: 480px)
+				width: 480px
+				height: 320px
+			@media (min-width: 512px)
+				width: 512px
+				height: 341px
+			@media (min-width: 640px)
+				width: 320px
+				height: 214px
+			@media (min-width: 768px)
+				width: 384px
+				height: 256px
+			@media (min-width: 960px)
+				width: 480px
+				height: 320px
+			@media (min-width: 1024px)
+				width: 512px
+				height: 341px
+			@media (min-width: 1280px)
+				width: 640px
+				height: 426px
 
-		input:hover, input:focus
-			outline: none
+		.carousel
+			overflow: hidden
 
-		input:checked ~ input:before
-			content: "\232A"
-			padding-left: 22px
+			input
+				position: absolute
+				z-index: 3
+				margin: 0
+				top: 125px
+				width: 50px
+				height: 50px
+				left: 10px
+				-webkit-appearance: none
+				-moz-appearance: none
+				-ms-appearance: none
+				appearance: none
 
-		input:checked
-			display: none
+			input:before
+				position: absolute
+				content: "\2329"
+				background: rgba(0, 0, 0, 0.3)
+				border-radius: 50%
+				color: #FFFFFF
+				font-size: 25px
+				width: 50px
+				height: 50px
+				line-height: 50px
+				padding-left: 7px
 
-		input:checked ~ input
-			right: 10px
-			left: auto
+			input:hover, input:focus
+				outline: none
 
-		input:checked + div + input
-			z-index: 4
+			input:checked ~ input:before
+				content: "\232A"
+				padding-left: 22px
 
-		input + div
-			position: absolute
-			z-index: 1
+			input:checked
+				display: none
 
-		input:checked + div
-			z-index: 2
+			input:checked ~ input
+				right: 10px
+				left: auto
 
-		input + div
-			-webkit-transform: translate3D(-100%, 0, 0)
-			-moz-transform: translate3d(-100%, 0, 0)
-			-ms-transform: translate3d(-100%, 0, 0)
-			transform: translate3D(-100%, 0, 0)
-			-webkit-transition: transform .5s ease-in-out
-			-moz-transition: transform .5s ease-in-out
-			-ms-transition: transform .5s ease-in-out
-			transition: transform .5s ease-in-out
+			input:checked + div + input
+				z-index: 4
 
-		input:checked + div
-			-webkit-transform: translate3D(0, 0, 0)
-			-moz-transform: translate3d(0, 0, 0)
-			-ms-transform: translate3d(0, 0, 0)
-			transform: translate3D(0, 0, 0)
+			input + div
+				position: absolute
+				z-index: 1
 
-		input:checked + div ~ div
-			-webkit-transform: translate3d(100%, 0, 0)
-			-moz-transform: translate3d(100%, 0, 0)
-			-ms-transform: translate3d(100%, 0, 0)
-			transform: translate3d(100%, 0, 0)
+			input:checked + div
+				z-index: 2
 
-		div
-			width: 100%
-			height: 100%
+			input + div
+				-webkit-transform: translate3D(-100%, 0, 0)
+				-moz-transform: translate3d(-100%, 0, 0)
+				-ms-transform: translate3d(-100%, 0, 0)
+				transform: translate3D(-100%, 0, 0)
+				-webkit-transition: transform .5s ease-in-out
+				-moz-transition: transform .5s ease-in-out
+				-ms-transition: transform .5s ease-in-out
+				transition: transform .5s ease-in-out
 
-			img
+			input:checked + div
+				-webkit-transform: translate3D(0, 0, 0)
+				-moz-transform: translate3d(0, 0, 0)
+				-ms-transform: translate3d(0, 0, 0)
+				transform: translate3D(0, 0, 0)
+
+			input:checked + div ~ div
+				-webkit-transform: translate3d(100%, 0, 0)
+				-moz-transform: translate3d(100%, 0, 0)
+				-ms-transform: translate3d(100%, 0, 0)
+				transform: translate3d(100%, 0, 0)
+
+			div
 				width: 100%
+				height: 100%
+
+				img
+					width: 100%
+
+
+		.details-content
+			background-color: #ffff00
+			padding: 0px 20px
+			min-height: 100%
+
 
 
 

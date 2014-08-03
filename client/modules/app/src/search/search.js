@@ -19,11 +19,8 @@ angular.module('app.search', ['ngRoute'])
 
     .controller('SearchController', function($scope ) {
 
-        $scope.searchMode = true;
-        $scope.search = {};
         $scope.type = 'Tipo de Carro';
         $scope.cylinders = '';
-        $scope.price = 'Precio';
         $scope.minPrice = 50000;
         $scope.maxPrice = 1900000;
 
@@ -37,10 +34,6 @@ angular.module('app.search', ['ngRoute'])
 
         $scope.setPrice = function(price){
             $scope.search.price = price;
-        };
-        
-        $scope.search = function () {
-            $scope.searchMode = false;
         };
 
     })

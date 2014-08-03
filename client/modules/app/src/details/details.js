@@ -4,8 +4,12 @@ angular.module('app.details', [])
         $stateProvider
             .state('search.results.details', {
                 url: '/details/:itemId',
-                templateUrl: '/details/details.tpl.html',
-                controller: 'DetailsController'
+                'views':{
+                    'main@': {
+                        templateUrl: 'details/details.tpl.html',
+                        controller: 'DetailsController'
+                    }
+                }
             });
     })
 

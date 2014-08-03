@@ -1,12 +1,53 @@
-<div class="carousel-view">
-    <div class="carousel">
-        <input type="radio" name="item" ng-repeat-start="image in item.images track by $index " value="{{ $index }}" checked>
+<div class="details-view">
+    <div class="item-details">
+        <div class="carousel">
+            <input type="radio" name="item" ng-repeat-start="image in item.images track by $index " value="{{ $index }}"
+                   ng-checked="$first">
 
-        <div ng-repeat-end>
-            <img ng-src="{{ image.url }}">
+            <div ng-repeat-end>
+                <img ng-src="{{ image.url }}">
+            </div>
         </div>
+        <article class="details-content">
+            <h1>{{ item.model }}</h1>
+
+            <div class="content">
+                <div class="column">
+                    <p class="property">
+                        <span class="name">Marca: </span>
+                        <span class="value">{{ item.brand }}</span>
+                    </p>
+                    <p class="property">
+                        <span class="name">Tipo: </span>
+                        <span class="value">{{ item.type }}</span>
+                    </p>
+                    <p class="property">
+                        <span class="name">Cilindraje: </span>
+                        <span class="value">{{ item.cylinders }} Cilindros</span>
+                    </p>
+                    <p class="property">
+                        <span class="name">Motor: </span>
+                        <span class="value">{{ item.engine }}</span>
+                    </p>
+                    <p class="property">
+                        <span class="name">Potencia: </span>
+                        <span class="value">{{ item.power }} hp</span>
+                    </p>
+                    <p class="property">
+                        <span class="name">Precio: </span>
+                        <span class="value">{{ item.price | currency }}</span>
+                    </p>
+                </div>
+
+                <div class="column">
+                    
+                </div>
+            </div>
+        </article>
+
     </div>
-    <div>
+
+    <div class="item-headers">
 
     </div>
 </div>
