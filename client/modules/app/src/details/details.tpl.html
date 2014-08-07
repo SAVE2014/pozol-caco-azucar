@@ -1,4 +1,9 @@
 <div class="details-view">
+    <div class="view-header" >
+        <!--<a ui-sref="results()">-->
+        <a ui-sref="search.results"><span class="bnt-return"></span></a>
+        <!--</a>-->
+    </div>
     <div class="item-details">
         <div class="carousel">
             <input type="radio" name="item" ng-repeat-start="image in item.images track by $index " value="{{ $index }}"
@@ -35,14 +40,24 @@
                     </p>
                     <p class="property">
                         <span class="name">Precio: </span>
-                        <span class="value">{{ item.price | currency }}</span>
+                        <span class="value"> ${{ item.price | number:0 }}</span>
                     </p>
                 </div>
 
                 <div class="column">
-                    
+                    <p class="property name">Descripción:</p>
+                    <p class="property value">{{ item.description}}</p>
                 </div>
             </div>
+
+            <div class="features">
+                <span class="ion-cloud" ng-if="item.airbags" ></span>
+                <span class="ion-paper-airplane" ng-if="item.sunroof"></span>
+                <span class="ion-disc" ng-if="item.airBreaks"></span>
+                <span class="ion-location" ng-if="item.gps"></span>
+                <span class="ion-bluetooth" ng-if="item.blueTooth"></span>
+            </div>
+
         </article>
 
     </div>

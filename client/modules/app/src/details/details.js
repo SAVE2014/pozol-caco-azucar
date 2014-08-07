@@ -18,7 +18,11 @@ angular.module('app.details', [])
         return Restangular.one('items', itemId).get().$object;
     })
 
-    .controller('DetailsController', function ($scope, ItemDetailsSvc) {
+    .controller('DetailsController', function ($scope, $route, ItemDetailsSvc, $stateParams) {
+        var type = $stateParams.type;
+        var cylinders = $stateParams.cylinders;
+        var minPrice = $stateParams.minPrice;
+        var maxPrice = $stateParams.maxPrice;
 
         $scope.item = ItemDetailsSvc;
         console.log($scope.item);

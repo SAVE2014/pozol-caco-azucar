@@ -1,57 +1,88 @@
+
 .details-view
 	+flexbox
 	+flex(1)
-	//+align-content(center)
 	+align-items(center)
 	+flex-direction(column)
+	color: lighten($dark-blue, 13)
+
+	.view-header
+		width: 100%
+		height: 50px
+		background-color: $dark-blue
+		color: #FFFFFF
+		font-size: 30px
+		line-height: 50px
+		padding-left: 5px
+
+		a
+			color: #FFFFFF
+
+			&:hover, &:focus
+				color: #FFFFFF
+				text-decoration: none
+
+		.bnt-return
+
+			&:before
+				content: "\2329"
+
 
 	.item-headers
 		width: 320px
 		height: 100px
-		background-color: green
+		//background-color: green
 
 	.item-details
 		+flexbox
-		margin-top: 100px
+		margin-top: 35px
 		@media (max-width: 639px)
 			+flex-direction(column)
 
 		.carousel, .details-content
 			width: 320px
-			height: 214px
 			@media (min-width: 384px)
 				width: 384px
-				height: 256px
 			@media (min-width: 480px)
 				width: 480px
-				height: 320px
 			@media (min-width: 512px)
 				width: 512px
-				height: 341px
 			@media (min-width: 640px)
 				width: 320px
-				height: 214px
 			@media (min-width: 768px)
 				width: 384px
-				height: 256px
 			@media (min-width: 960px)
 				width: 480px
-				height: 320px
 			@media (min-width: 1024px)
 				width: 512px
-				height: 341px
 			@media (min-width: 1280px)
 				width: 640px
-				height: 426px
 
 		.carousel
 			overflow: hidden
+			height: 214px
+			@media (min-width: 384px)
+				height: 256px
+			@media (min-width: 480px)
+				height: 320px
+			@media (min-width: 512px)
+				height: 341px
+			@media (min-width: 640px)
+				height: 214px
+			@media (min-width: 768px)
+				height: 256px
+			@media (min-width: 960px)
+				height: 320px
+			@media (min-width: 1024px)
+				height: 341px
+			@media (min-width: 1280px)
+				height: 426px
 
 			input
 				position: absolute
 				z-index: 3
 				margin: 0
-				top: 125px
+				top: 40%
 				width: 50px
 				height: 50px
 				left: 10px
@@ -127,10 +158,39 @@
 
 
 		.details-content
-			background-color: #ffff00
+			+flexbox
+			+flex-direction(column)
+			//background-color: #ffff00
 			padding: 0px 20px
-			min-height: 100%
 
+			.content
+				+flexbox
+				@media (max-width: 479px)
+					+flex-direction(column)
+				@media (min-width: 640px) and (max-width: 959px)
+					+flex-direction(column)
+
+
+				.column
+					+flex(1)
+					//background-color: purple
+
+					p.property
+						font-size: 1.2em
+
+					.name
+						color: lighten($dark-blue, 13)
+
+					.value
+						color: lighten($dark-blue, 46)
+						font-weight: 300
+
+			.features
+				color: #657376
+				font-size: 35px
+
+				span
+					padding: 5px 8px
 
 
 

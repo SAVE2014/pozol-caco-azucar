@@ -32,9 +32,9 @@ angular.module('app.search', ['ngRoute'])
             $scope.cylinders = engine;
         };
 
-        $scope.setPrice = function(price){
-            $scope.search.price = price;
-        };
+//        $scope.setPrice = function(price){
+//            $scope.search.price = price;
+//        };
 
     })
 ;

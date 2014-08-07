@@ -1,28 +1,79 @@
-<div class="results-view" >
+<div class="results-view">
+    <div class="view-header">
+        <!--<a ui-sref="results()">-->
+        <a ui-sref="search"><span class="ion-android-search"></span></a>
+        <!--</a>-->
+    </div>
     <div class="row">
-         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-             <h1>{{ items.length}} Resultados</h1>
-         </div>
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <p class="total-results">{{ items.length}} Resultados</p>
+        </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-repeat="result in items">
             <div class="result">
-                <div class="result-image">
-                    <img ng-src="{{ result.images[0].url}}" alt=""/>
+                <div class="add-remove" ng-init="selected = false" ng-click="selected = !selected">
+                    <span class="ion-plus-circled" ng-hide="selected" ></span>
+                    <span class="ion-checkmark-circled" ng-show="selected"></span>
                 </div>
+
                 <div class="result-content">
-                    <span class="model">{{result.model}}</span>
+                    <div class="model">{{result.model}}</div>
+
+                    <div class="price">
+                        ${{ result.price | number:0 }}
+                    </div>
+
+                    <div class="features">
+                        <span class="ion-cloud" ng-if="result.airbags" ></span>
+
+                        <span class="ion-paper-airplane" ng-if="result.sunroof"></span>
+
+                        <span class="ion-disc" ng-if="result.airBreaks"></span>
+
+                        <span class="ion-location" ng-if="result.gps"></span>
+
+                        <span class="ion-bluetooth" ng-if="result.blueTooth"></span>
+                    </div>
                 </div>
-                <div class="result-price">
-                    <span class="price">
-                        {{ result.price | currency }}
-                    </span>
-                    <a ui-sref=".details({ itemId: result.id})">
-                        <button class="btn-more">
-                            Detalles
-                        </button>
-                    </a>
+                <a ui-sref=".details({ itemId: result.id})">
+                    <div class="result-image">
+                        <img ng-src="{{ result.images[0].url}}" alt=""/>
+                    </div>
+                </a>
+                <!--<div class="result-info">-->
+                    <!--&lt;!&ndash;<div class="add-remove">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="ion-android-add"></span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--<a ui-sref=".details({ itemId: result.id})">-->
+                        <!--<button class="btn-more">-->
+                            <!--Detalles-->
+                        <!--</button>-->
+                    <!--</a>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 info-form">
+            <div class="form-header">
+                Soliciar Informes
+            </div>
+            <div class="form-body" role="form">
+                <div class="form-input">
+                    <input type="tex"  placeholder="Nombre" required>
                 </div>
+                <div class="form-input">
+                    <input type="email"  placeholder="Correo Electronico" required>
+                </div>
+                <div class="form-input">
+                    <input type="tex"  placeholder="Telefono" required>
+                </div>
+                <div class="form-text">
+                    <textarea  placeholder="Comentarios" rows="4">
+                    </textarea>
+                </div>
+                <button type="submit" class="btn btn-default btn-request">Solicitar</button>
             </div>
         </div>
     </div>
