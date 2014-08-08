@@ -1,13 +1,14 @@
 .search-view
+	font-size: 16px
 
 	.search-text
 		margin-top: 50px
 		text-align: center
-		color: #657376
+		color: $dark-gray-2
 
 	.ngrs-join
 		background-image: none
-		background-color: #96cc51
+		background-color: $green
 		border: none
 
 	.ngrs-range-slider
@@ -18,7 +19,7 @@
 	.ngrs-range-slider:hover, .ngrs-range-slider:focus
 		box-shadow: none
 		outline: none
-		border-color: #FFFFFF
+		border-color: $white
 
 	.options
 		+flexbox
@@ -37,7 +38,7 @@
 
 				span
 					font-size: 100px
-					color: #657376
+					color: $dark-gray
 
 
 
@@ -45,7 +46,7 @@
 		position: relative
 		width: 90%
 		margin: 0px auto
-		color: #FFFFFF
+		color: $white
 		-webkit-transform-style: preserve-3d
 		-moz-transform-style: preserve-3d
 		-ms-transform-style: preserve-3d
@@ -80,7 +81,7 @@
 		.front
 			height: 60px
 			width: 100%
-			background-color: #A0D468 //#96cc51
+			background-color: $green
 			-webkit-backface-visibility: hidden
 			-moz-backface-visibility: hidden
 			-ms-backface-visibility: hidden
@@ -98,10 +99,10 @@
 				height: 0
 				border-left: 5px solid transparent
 				border-right: 5px solid transparent
-				border-top: 5px solid #FFFFFF
+				border-top: 5px solid $white
 
 			&:hover
-				background-color: #8CC152 //#89bc4b
+				background-color: $green-2
 
 		.back
 			-webkit-transform: rotateX(180deg)
@@ -120,18 +121,18 @@
 			z-index: 1
 			width: 100%
 			padding: 20px
-			background-color: #fff
+			background-color: $white
 			box-shadow: 0px 3px 8px rgba(0,0,0,.25)
 			list-style: none
 
 			li
-				color: #657376
+				color: $dark-gray-2
 				line-height: 30px
 				cursor: pointer
 				padding-left: 20px
 
-			&:hover
-				color: #325ec7
+				&:hover
+					color: $green
 
 	.search
 		+flexbox
@@ -142,14 +143,18 @@
 			margin: 50px auto
 			height: 60px
 			width: 30%
-			background-color: #FFCE54
+			@media (max-width: 600px)
+				width: 90%
+			background-color: $yellow
 			cursor: pointer
 			border-radius: 2px
-			color: #FFFFFF
+			border: none
+			color: $white
 			text-align: center
-			line-height: 60px
-			box-shadow: 0 3px 0 rgba(0,0,0,0.1)
+			font-size: 18px
+			letter-spacing: 3px
+			box-shadow: 0px 3px 0px rgba(0,0,0,0.1)
 
 		.btn-search:hover, .btn-search:focus
-			background-color: #FCBB42
+			background-color: $yellow-2
 			text-decoration: none

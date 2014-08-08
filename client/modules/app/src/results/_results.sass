@@ -1,44 +1,41 @@
-$dark-blue: #434A54 //#2e3233
-$dark-blue2: #656D78 //#2e3233
-
 .results-view
 	width: 100%
 	min-height: 100%
-	color: #647376
+	color: $dark-gray-2
 
 	.view-header
 		width: 100%
 		height: 50px
-		background-color: $dark-blue
-		color: #FFFFFF
+		background-color: $dark-gray-2
+		color: $white
 		font-size: 30px
 		line-height: 50px
 		padding-left: 10px
 
 		a
-			color: #FFFFFF
+			color: $white
 
 			&:hover, &:focus
-				color: #FFFFFF
+				color: $white
 				text-decoration: none
 
 
 	.results-header
 		padding-left: 3px
-		color: white
+		color: $white
 
 	.total-results
 		font-size: 16px
 		margin: 10px
 
 	.result
+		+flexbox
 		height: 100px
 		margin-bottom: 15px
-		background-color: #ffffff
+		background-color: $white
 		padding: 0px
 		box-shadow: 0 3px 0 rgba(0,0,0,0.1)
 		border-radius: 2px
-		+flexbox
 
 		.add-remove
 			width: 70px
@@ -48,10 +45,10 @@ $dark-blue2: #656D78 //#2e3233
 			line-height: 100px
 
 			.ion-plus-circled
-				color: #E6E9ED
+				color: $medium-gray
 
 			.ion-checkmark-circled
-				color: #A0D468
+				color: $green
 
 		.result-image
 			width: 150px
@@ -78,10 +75,10 @@ $dark-blue2: #656D78 //#2e3233
 
 			.model
 				font-size: 1.75em
-				color: $dark-blue
+				color: $dark-gray-2
 
 			.price
-				color: #AAB2BD
+				color: $medium-gray-2
 				border-radius: 2px
 				padding: 5px
 				display: inline-block
@@ -92,7 +89,7 @@ $dark-blue2: #656D78 //#2e3233
 			.features
 				display: inline-block
 				vertical-align: top
-				color: #AAB2BD
+				color: $medium-gray-2
 
 				span
 					font-size: 30px
@@ -137,9 +134,9 @@ $dark-blue2: #656D78 //#2e3233
 	.info-form
 
 		.form-header
-			color: #FFFFFF
+			color: $white
 			width: 100%
-			background-color: $dark-blue
+			background-color: $dark-gray
 			padding: 10px 20px
 			font-weight: 300
 			font-size: 16px
@@ -149,11 +146,11 @@ $dark-blue2: #656D78 //#2e3233
 		.form-body
 			+flexbox
 			+flex-direction(column)
-			background-color: #FFFFFF
+			background-color: $white
 			padding: 0px 15px
 			width: 100%
 			box-shadow: 0 3px 0 rgba(0,0,0,0.1)
-			color: $dark-blue
+			color: $dark-gray-2
 
 			.form-input
 				+flexbox
@@ -163,7 +160,7 @@ $dark-blue2: #656D78 //#2e3233
 
 				input
 					width: 100%
-					border: solid 1px #e6e9ed
+					border: solid 1px $light-gray-2
 					padding: 6px 12px
 					box-shadow: none
 
@@ -180,6 +177,7 @@ $dark-blue2: #656D78 //#2e3233
 					resize: none
 					border: solid 1px #e6e9ed
 					box-shadow: none
+					padding: 10px
 
 					&:hover, &:focus
 						border-color: #e6e9ed
@@ -187,17 +185,17 @@ $dark-blue2: #656D78 //#2e3233
 						box-shadow: none
 
 			.btn-request
-				background-color: #FFCE54
+				background-color: $yellow
 				border: none
 				margin: 15px 10px
-				color: #FFFFFF
+				color: $white
 				font-size: 16px
 				letter-spacing: 3px
 
 				&:hover, &:focus
 					border: none
 					outline: none
-					background-color: #FCBB42
+					background-color: $yellow-2
 
 
 ::-webkit-input-placeholder

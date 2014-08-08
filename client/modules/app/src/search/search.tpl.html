@@ -71,7 +71,7 @@
     </div>
 
     <div class="search">
-        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type != 'Tipo de Carro' && cylinders != 'Motor' && ( minPrice != 50000 || maxPrice != 1900000)">
+        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type == 'Tipo de Carro' || cylinders == 'Motor' || ( minPrice == 50000 && maxPrice == 1900000)">
             BUSCAR
         </button>
      </div>

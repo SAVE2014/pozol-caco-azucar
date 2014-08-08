@@ -4,13 +4,13 @@
 	+flex(1)
 	+align-items(center)
 	+flex-direction(column)
-	color: lighten($dark-blue, 13)
+	color: lighten($dark-gray-2, 13)
 
 	.view-header
 		width: 100%
 		height: 50px
-		background-color: $dark-blue
-		color: #FFFFFF
+		background-color: $dark-gray-2
+		color: $white
 		font-size: 30px
 		line-height: 50px
 		padding-left: 5px
@@ -36,6 +36,8 @@
 	.item-details
 		+flexbox
 		margin-top: 35px
+		box-shadow: 0px 3px 0px rgba(0,0,0,0.1)
+		background-color: #FFFFFF
 		@media (max-width: 639px)
 			+flex-direction(column)
 
@@ -94,7 +96,7 @@
 			input:before
 				position: absolute
 				content: "\2329"
-				background: rgba(0, 0, 0, 0.3)
+				background: rgba(160, 212, 104, 0.3)
 				border-radius: 50%
 				color: #FFFFFF
 				font-size: 25px
@@ -179,15 +181,16 @@
 						font-size: 1.2em
 
 					.name
-						color: lighten($dark-blue, 13)
+						color: lighten($dark-gray-2, 13)
 
 					.value
-						color: lighten($dark-blue, 46)
+						color: lighten($dark-gray-2, 46)
 						font-weight: 300
 
 			.features
 				color: #657376
 				font-size: 35px
+				margin-bottom: 10px
 
 				span
 					padding: 5px 8px
