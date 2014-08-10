@@ -1,8 +1,6 @@
 <div class="results-view">
     <div class="view-header">
-        <!--<a ui-sref="results()">-->
         <a ui-sref="search"><span class="ion-android-search"></span></a>
-        <!--</a>-->
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -10,71 +8,72 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-repeat="result in items">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-repeat="car in items track by $index">
             <div class="result">
-                <div class="add-remove" ng-init="selected = false" ng-click="selected = !selected">
-                    <span class="ion-plus-circled" ng-hide="selected" ></span>
-                    <span class="ion-checkmark-circled" ng-show="selected"></span>
+                <div class="add-remove">
+                    <span class="ion-plus-circled" ng-hide="selected(car.model)" ng-click="addCar(car.model)"></span>
+                    <span class="ion-checkmark-circled" ng-show="selected(car.model)"
+                          ng-click="deleteCar(car.model)"></span>
                 </div>
 
                 <div class="result-content">
-                    <div class="model">{{result.model}}</div>
+                    <div class="model">{{car.model}}</div>
 
                     <div class="price">
-                        ${{ result.price | number:0 }}
+                        ${{ car.price | number:0 }}
                     </div>
 
                     <div class="features">
-                        <span class="ion-cloud" ng-if="result.airbags" ></span>
+                        <span class="ion-cloud" ng-if="car.airbags"></span>
 
-                        <span class="ion-paper-airplane" ng-if="result.sunroof"></span>
+                        <span class="ion-paper-airplane" ng-if="car.sunroof"></span>
 
-                        <span class="ion-disc" ng-if="result.airBreaks"></span>
+                        <span class="ion-disc" ng-if="car.airBreaks"></span>
 
-                        <span class="ion-location" ng-if="result.gps"></span>
+                        <span class="ion-location" ng-if="car.gps"></span>
 
-                        <span class="ion-bluetooth" ng-if="result.blueTooth"></span>
+                        <span class="ion-bluetooth" ng-if="car.blueTooth"></span>
                     </div>
                 </div>
-                <a ui-sref=".details({ itemId: result.id})">
+                <a ui-sref=".details({ itemId: car.id})">
                     <div class="result-image">
-                        <img ng-src="{{ result.images[0].url}}" alt=""/>
+                        <img ng-src="{{ car.images[0].url}}" alt=""/>
                     </div>
                 </a>
-                <!--<div class="result-info">-->
-                    <!--&lt;!&ndash;<div class="add-remove">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<span class="ion-android-add"></span>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                    <!--<a ui-sref=".details({ itemId: result.id})">-->
-                        <!--<button class="btn-more">-->
-                            <!--Detalles-->
-                        <!--</button>-->
-                    <!--</a>-->
-                <!--</div>-->
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 info-form">
             <div class="form-header">
-                Soliciar Informes
+                <span ng-if="!request.cars.length">Selecciona para pedir informes</span><span
+                    ng-if="request.cars.length">Soliciar Informes sobre {{ request.cars.length }} vehiculo</span><span
+                    ng-if="request.cars.length > 1">s</span>
             </div>
-            <div class="form-body" role="form">
+            <div class="form-body" role="form" ng-form="form">
                 <div class="form-input">
-                    <input type="tex"  placeholder="Nombre" required>
+                    <input type="tex" ng-model="request.name" placeholder="Nombre" required ng-minlength="5">
                 </div>
                 <div class="form-input">
-                    <input type="email"  placeholder="Correo Electronico" required>
+                    <input type="email" ng-model="request.email" placeholder="Correo Electronico" required>
                 </div>
                 <div class="form-input">
-                    <input type="tex"  placeholder="Telefono" required>
+                    <input type="tex" ng-model="request.phone" placeholder="Telefono" ng-pattern="/^[0-9]+$/"
+                           ng-minlength="10" required>
                 </div>
                 <div class="form-text">
-                    <textarea  placeholder="Comentarios" rows="4"></textarea>
+                    <textarea ng-model="request.comments" placeholder="Comentarios" rows="4"></textarea>
                 </div>
-                <button type="submit" class="btn btn-default btn-request">Solicitar</button>
+                <button type="submit" ng-click="sendRequest()" class="btn btn-default btn-request"
+                        ng-disabled="form.$invalid || !request.cars.length">Solicitar
+                </button>
             </div>
         </div>
     </div>
 </div>
+
+<footer class="footer">
+    <div class="container">
+        Copyright © 2014. All rights reserved. Created by <a href="http://www.hectorjimenez.me">Hector Jimemez</a>
+    </div>
+</footer>
 

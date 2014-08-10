@@ -6,10 +6,10 @@ import logging
 import datetime
 
 
-from server.item.item import Item
+from server.car.car import Car
 
 
-class ItemEndpoint(webapp2.RequestHandler):
+class CarEndpoint(webapp2.RequestHandler):
 
     def get(self, slash, item_id):
 
@@ -24,7 +24,30 @@ class ItemEndpoint(webapp2.RequestHandler):
             self.response.out.write(json.dumps(item))
 
         else:
-            items = Item.query().fetch()
+
+            type = self.request.get('type', default_value=None)
+            cylinders = self.request.get('cylinders', default_value=None)
+            minPrice = self.request.get('minPrice', default_value=None)
+            maxPrice = self.request.get('maxPrice', default_value=None)
+
+            items = Car.query()
+
+            if type is not None:
+                items = items.filter(Car.type == type)
+                # logging.info(type)
+
+            if cylinders is not None:
+                items = items.filter(Car.cylinders == int(cylinders))
+                # logging.info(cylinders)
+
+            if minPrice is not None:
+                items = items.filter(Car.price >= int(minPrice))
+                # logging.info(minPrice)
+
+            if maxPrice is not None:
+                items = items.filter(Car.price <= int(maxPrice))
+                # logging.info(maxPrice)
+
             items_dict = []
             for i in items:
                 item = i.to_dict()
@@ -33,6 +56,8 @@ class ItemEndpoint(webapp2.RequestHandler):
                 item['created'] = i.created.date().strftime("%d, %b %Y")
                 item['updated'] = i.created.date().strftime("%d, %b %Y")
                 items_dict.append(item)
+
+            logging.info(len(items_dict))
             self.response.out.write(json.dumps(items_dict))
 
     def post(self, slash, item_id):
@@ -41,11 +66,18 @@ class ItemEndpoint(webapp2.RequestHandler):
         item = read_json(item_json)
         item.put()
 
+        item_dict = item.to_dict()
+        item_dict['id'] = item.key.urlsafe()
+        item_dict['key_id'] = item.key.id()
+        item_dict['created'] = item.created.date().strftime("%d, %b %Y")
+        item_dict['updated'] = item.created.date().strftime("%d, %b %Y")
+        self.response.out.write(json.dumps(item_dict))
+
     def put(self, slash, item_id ):
         item_key = ndb.Key(urlsafe=item_id)
         item = item_key.get()
 
-        item_json = json.loads(self.request.body)
+        item_json = json.loads(cgi.escape(self.request.body))
         logging.info(item_json)
         item.model = item_json['model']
         item.brand = item_json['brand']
@@ -62,12 +94,17 @@ class ItemEndpoint(webapp2.RequestHandler):
         item.description = item_json['description']
         item.images = item_json['images']
         item.updated = datetime.datetime.now()
-
         item.put()
+
+    def delete(self, slash, item_id):
+        item_key = ndb.Key(urlsafe=item_id)
+        # item = item_key.get()
+        # blobstore.delete(blob_key)
+        # item.delete()
 
 
 def read_json(passed_dict):
-    return Item(
+    return Car(
         model=passed_dict['model'],
         brand=passed_dict['brand'],
         type=passed_dict['type'],

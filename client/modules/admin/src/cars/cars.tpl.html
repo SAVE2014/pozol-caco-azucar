@@ -6,7 +6,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon">Busqueda</div>
-                    <input class="form-control" type="text" ng-model="searcText" placeholder="articulo ...">
+                    <input class="form-control" type="text" ng-model="searcText" placeholder="vehiculo ...">
                 </div>
             </div>
         </form>
@@ -16,22 +16,22 @@
         <div class="table-responsive table-items col-xs-12 col-md-8 col-md-offset-2">
             <table class="table table-hover table-bordered">
                 <thead class="items-table-head">
-                <tr>
-                    <th>Modelo</th>
-                    <th>Tipo</th>
-                    <th>Precio</th>
-                    <th>Marca</th>
-                    <th class="no-small-screen">Creado</th>
+                <tr ng-init="predicate='created'" >
+                    <th ng-click="predicate = 'model'; reverse=!reverse" >Modelo</th>
+                    <th ng-click="predicate = 'type'; reverse=!reverse" >Tipo</th>
+                    <th ng-click="predicate = 'price'; reverse=!reverse" >Precio</th>
+                    <th ng-click="predicate = 'brand'; reverse=!reverse" >Marca</th>
+                    <th ng-click="predicate = 'created'; reverse=!reverse" class="no-small-screen">Creado</th>
                 </tr>
                 </thead>
 
                 <tbody class="items-table-body">
-                <tr ng-repeat="item in items | filter:searcText" ng-click="setEditItem(item)">
-                    <td>{{ item.model }}</td>
-                    <td>{{ item.type }}</td>
-                    <td>{{ item.price | currency }}</td>
-                    <td>{{ item.brand }}</td>
-                    <td class="no-small-screen">{{ item.created }}</td>
+                <tr ng-repeat="car in cars | filter:searcText | orderBy:predicate:reverse" ng-click="setEditCar(car)">
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.type }}</td>
+                    <td>$ {{ car.price | number }}</td>
+                    <td>{{ car.brand }}</td>
+                    <td class="no-small-screen">{{ car.created }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -53,21 +53,19 @@
         <form role="form">
             <div class="form-group">
                 <label for="itemModel">Modelo</label>
-                <input type="text" ng-model="editItem.item.model" ng-disabled="disableInputs" class="form-control"
+                <input type="text" ng-model="editCar.car.model" ng-disabled="disableInputs" class="form-control"
                        id="itemModel" placeholder="Modelo del vehiculo">
             </div>
 
             <div class="form-group">
                 <label for="itemBrand">Marca</label>
-                <input type="text" ng-model="editItem.item.brand" ng-disabled="disableInputs" class="form-control"
+                <input type="text" ng-model="editCar.car.brand" ng-disabled="disableInputs" class="form-control"
                        id="itemBrand" placeholder="Marca del vehiculo">
             </div>
 
             <div class="form-group">
                 <label for="itemType">Tipo</label>
-                <!--<input type="text" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control"-->
-                <!--id="itemType" placeholder="Tipo de articulo">-->
-                <select id="itemType" ng-model="editItem.item.type" ng-disabled="disableInputs" class="form-control">
+                <select id="itemType" ng-model="editCar.car.type" ng-disabled="disableInputs" class="form-control">
                     <option>Coupe</option>
                     <option>Hatchback</option>
                     <option>Minivan</option>
@@ -79,7 +77,7 @@
 
             <div class="form-group">
                 <label for="itemCylinders">Cilindraje</label>
-                <select id="itemCylinders" ng-model="editItem.item.cylinders"  ng-disabled="disableInputs" class="form-control">
+                <select id="itemCylinders" ng-model="editCar.car.cylinders"  ng-disabled="disableInputs" class="form-control">
                     <option value="4">4</option>
                     <option value="5">5</option>
                     <option value="6">6</option>
@@ -89,7 +87,7 @@
 
             <div class="form-group">
                 <label for="itemEngine">Motor</label>
-                <select id="itemEngine" ng-model="editItem.item.engine"  ng-disabled="disableInputs" class="form-control">
+                <select id="itemEngine" ng-model="editCar.car.engine"  ng-disabled="disableInputs" class="form-control">
                     <option value="1.5">1.5</option>
                     <option value="1.6">1.6</option>
                     <option value="1.8">1.8</option>
@@ -105,52 +103,56 @@
 
             <div class="form-group">
                 <label for="itemPrice">Precio</label>
-                <input type="text" ng-model="editItem.item.price" ng-disabled="disableInputs" class="form-control"
-                       id="itemPrice" placeholder="Precio del vehiculo" value="editItem.item.price|currency">
+                <input type="text" ng-model="editCar.car.price" ng-disabled="disableInputs" class="form-control"
+                       id="itemPrice" placeholder="Precio del vehiculo" value="editCar.car.price|currency">
             </div>
 
             <div class="form-group">
                 <label for="itemPower">Potencia</label>
-                <input type="text" ng-model="editItem.item.power" ng-disabled="disableInputs" class="form-control"
+                <input type="text" ng-model="editCar.car.power" ng-disabled="disableInputs" class="form-control"
                        id="itemPower" placeholder="Potencia del vehiculo" >
             </div>
 
             <div class="form-group">
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="editItem.item.airbags"  ng-disabled="disableInputs" > Bolsas de aire
+                    <input type="checkbox" ng-model="editCar.car.airbags"  ng-disabled="disableInputs" > Bolsas de aire
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="editItem.item.sunroof"  ng-disabled="disableInputs" > Quemacocos
+                    <input type="checkbox" ng-model="editCar.car.sunroof"  ng-disabled="disableInputs" > Quemacocos
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="editItem.item.airBreaks" ng-disabled="disableInputs" > Frenos de aire
+                    <input type="checkbox" ng-model="editCar.car.airBreaks" ng-disabled="disableInputs" > Frenos de aire
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="editItem.item.gps" ng-disabled="disableInputs" > GPS
+                    <input type="checkbox" ng-model="editCar.car.gps" ng-disabled="disableInputs" > GPS
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="editItem.item.blueTooth"  ng-disabled="disableInputs" > Manos libres
+                    <input type="checkbox" ng-model="editCar.carblueTooth"  ng-disabled="disableInputs" > Manos libres
                 </label>
             </div>
 
             <div class="form-group">
                 <label for="itemDescription">Descripción</label>
-                <textarea id="itemDescription" ng-model="editItem.item.description" ng-disabled="disableInputs"
+                <textarea id="itemDescription" ng-model="editCar.car.description" ng-disabled="disableInputs"
                           class="form-control" rows="5" placeholder="Descripción del vehiculo">
 
                 </textarea>
             </div>
 
-            <div class="form-group" ng-show="editItem.item.images.length">
+            <div class="form-group" ng-show="editCar.car.images.length">
                 <div class="row">
-                    <div class="col-xs-3" ng-repeat="image in editItem.item.images track by $index">
+                    <div class="col-xs-3" ng-repeat="image in editCar.car.images track by $index">
                         <img ng-src="{{ image.url }}" alt="Foto de articulo" class="img-responsive">
                     </div>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
+            <button type="submit" class="btn btn-default pull-right" ng-click="saveCar()" ng-disabled="disableInputs">
                 Guardar
+            </button>
+
+            <button type="submit" class="btn btn-danger pull-right" ng-click="deleteCar()" ng-disabled="disableInputs">
+                Delete
             </button>
         </form>
     </div>

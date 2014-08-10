@@ -13,18 +13,19 @@
 
        <div class="collapse navbar-collapse">
            <ul class="nav navbar-nav">
-               <li ui-sref-active="active" data-toggle="collapse" data-target=".navbar-collapse" ><a ui-sref="admin">Inicio</a></li>
-               <li ui-sref-active="active" data-toggle="collapse" data-target=".navbar-collapse" ><a ui-sref="admin.items">Lista de articulos</a></li>
-               <li ui-sref-active="active" data-toggle="collapse" data-target=".navbar-collapse" ><a ui-sref="admin.add">Crear articulo</a></li>
+               <li ui-sref-active="active" ><a ui-sref="admin">Inicio</a></li>
+               <li ui-sref-active="active" ><a ui-sref="admin.requests">Solicitudes</span></a></li>
+               <li ui-sref-active="active" ><a ui-sref="admin.cars">Vehiculos</a></li>
+               <li ui-sref-active="active" ><a ui-sref="admin.add">Crear vehiculos</a></li>
            </ul>
        </div><!--/.nav-collapse -->
    </div>
 </div>
 
-<div ui-view="main" ng-cloak class="container main-container">
+<div ui-view="main" ng-cloak autoscroll='true' class="container main-container">
     <div class="welcome-msg">
         <h1>Bienvenido Administrator</h1>
 
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
     </div>
  </div><!-- /.container -->

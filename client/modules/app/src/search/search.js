@@ -13,10 +13,6 @@ angular.module('app.search', ['ngRoute'])
             });
     })
 
-    .factory('ItemsSvc', function(Restangular){
-        return Restangular.all('items').getList().$object;
-    })
-
     .controller('SearchController', function($scope ) {
 
         $scope.type = 'Tipo de Carro';
@@ -31,10 +27,6 @@ angular.module('app.search', ['ngRoute'])
         $scope.setCylinders = function(engine){
             $scope.cylinders = engine;
         };
-
-//        $scope.setPrice = function(price){
-//            $scope.search.price = price;
-//        };
 
     })
 ;

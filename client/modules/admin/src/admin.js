@@ -8,14 +8,15 @@ angular.module('admin', [
     'ng-file-upload',
     'admin.front',
     'admin.add',
-    'admin.items',
+    'admin.cars',
+    'admin.requests',
     'templates-app'])
 
 
-    .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, growlProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
         RestangularProvider.setBaseUrl('/api/v1');
-        //growlProvider.globalTimeToLive(5000);
+        $locationProvider.html5Mode(true);
 
     })
 

@@ -1,0 +1,116 @@
+<div growl></div>
+
+<div class="search-view" ng-hide="editView">
+    <div class="row items-search">
+        <form class="form-inline col-xs-12 col-md-8 col-md-offset-2" role="form">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">Busqueda</div>
+                    <input class="form-control" type="text" ng-model="searcText" placeholder="Solicitud ...">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row items-container">
+        <div class="table-responsive table-items col-xs-12 col-md-8 col-md-offset-2">
+            <table class="table table-hover table-bordered">
+                <thead class="items-table-head">
+                <tr ng-init="predicate='created'">
+                    <th ng-click="predicate = 'name'; reverse=!reverse">Nombre</th>
+                    <th ng-click="predicate = 'email'; reverse=!reverse">Email</th>
+                    <th ng-click="predicate = 'phone'; reverse=!reverse">Telefono</th>
+                    <th ng-click="predicate = 'status'; reverse=!reverse">Estatus</th>
+                    <th ng-click="predicate = 'created'; reverse=!reverse" class="no-small-screen">Creado</th>
+                </tr>
+                </thead>
+
+                <tbody class="items-table-body">
+                <tr ng-repeat="request in requests | filter:searcText | orderBy:predicate:reverse"
+                    ng-click="setEditRequest(request)">
+                    <td>{{ request.name }}</td>
+                    <td>{{ request.email }}</td>
+                    <td>{{ request.phone }}</td>
+                    <td>{{ request.status }}</td>
+                    <td class="no-small-screen">{{ request.created }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="edit-view" ng-show="editView">
+    <div class="row edit-btn-row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <button type="button" class="btn btn-default" ng-click="hideDetails()"> Ver todas las solicitudes</button>
+
+            <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Editar
+            </button>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <form role="form">
+            <center><h1>Solicitud</h1></center>
+
+            <div class="form-group">
+                <label for="itemCylinders">Estatus</label>
+                <select id="itemCylinders" ng-model="editRequest.request.status" ng-disabled="disableInputs"
+                        class="form-control">
+                    <option value="No revisado">No revisado</option>
+                    <option value="Revisado">Revisado</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="requestDate">Creada el dia</label>
+                <input type="text" ng-model="editRequest.request.created" readonly class="form-control"
+                       id="requestDate" placeholder="Nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="requestName">Name</label>
+                <input type="text" ng-model="editRequest.request.name" readonly class="form-control"
+                       id="requestName" placeholder="Nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="requestEmail">email</label>
+                <input type="text" ng-model="editRequest.request.email" readonly class="form-control"
+                       id="requestEmail" placeholder="Correo electronico">
+            </div>
+
+            <div class="form-group">
+                <label for="requestPhone">Telefono</label>
+                <input type="text" ng-model="editRequest.request.phone" readonly class="form-control"
+                       id="requestPhone" placeholder="Telefono">
+            </div>
+
+            <div class="form-group">
+                <label for="">Vehiculos</label>
+                <input type="text"  ng-repeat="car in editRequest.request.cars track by $index" value="{{ car }}" readonly class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="RequestComments">Comentarios</label>
+                <textarea id="RequestComments" ng-model="editRequest.request.comments" readonly
+                          class="form-control" rows="5" placeholder="Comentarios">
+
+                </textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default pull-right" ng-click="saveRequest()"
+                    ng-disabled="disableInputs">
+                Guardar
+            </button>
+
+            <button type="submit" class="btn btn-danger pull-right" ng-click="deleteRequest()"
+                    ng-disabled="disableInputs">
+                Borrar
+            </button>
+        </form>
+    </div>
+
+
+</div>

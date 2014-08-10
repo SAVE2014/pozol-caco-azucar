@@ -1,5 +1,5 @@
 <div class="details-view">
-    <div class="view-header" >
+    <div class="view-header">
         <!--<a ui-sref="results()">-->
         <a ui-sref="search.results"><span class="bnt-return"></span></a>
         <!--</a>-->
@@ -22,22 +22,27 @@
                         <span class="name">Marca: </span>
                         <span class="value">{{ item.brand }}</span>
                     </p>
+
                     <p class="property">
                         <span class="name">Tipo: </span>
                         <span class="value">{{ item.type }}</span>
                     </p>
+
                     <p class="property">
                         <span class="name">Cilindraje: </span>
                         <span class="value">{{ item.cylinders }} Cilindros</span>
                     </p>
+
                     <p class="property">
                         <span class="name">Motor: </span>
                         <span class="value">{{ item.engine }}</span>
                     </p>
+
                     <p class="property">
                         <span class="name">Potencia: </span>
                         <span class="value">{{ item.power }} hp</span>
                     </p>
+
                     <p class="property">
                         <span class="name">Precio: </span>
                         <span class="value"> ${{ item.price | number:0 }}</span>
@@ -46,12 +51,13 @@
 
                 <div class="column">
                     <p class="property name">Descripción:</p>
+
                     <p class="property value">{{ item.description}}</p>
                 </div>
             </div>
 
             <div class="features">
-                <span class="ion-cloud" ng-if="item.airbags" ></span>
+                <span class="ion-cloud" ng-if="item.airbags"></span>
                 <span class="ion-paper-airplane" ng-if="item.sunroof"></span>
                 <span class="ion-disc" ng-if="item.airBreaks"></span>
                 <span class="ion-location" ng-if="item.gps"></span>
@@ -60,3 +66,9 @@
         </article>
     </div>
 </div>
+
+<footer class="footer">
+    <div class="container">
+        Copyright © 2014. All rights reserved. Created by <a href="http://www.hectorjimenez.me">Hector Jimemez</a>
+    </div>
+</footer>

@@ -7,27 +7,27 @@
 
             <p>
                 Favor de agregar por lo menos una foto por cada nuevo articulo. Para una major resolucion se recomienda
-                que los fotos sean de 512 x 512 pixeles.
+                que los fotos sean de 640 pixeles de largo por 320 pixeles de ancho.
             </p>
         </div>
     </div>
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 add-table">
         <form role="form">
             <div class="form-group">
                 <label for="itemModel">Modelo</label>
-                <input type="text" ng-model="addItem.model" ng-disabled="disableInputs" class="form-control"
+                <input type="text" ng-model="addCar.model" ng-disabled="disableInputs" class="form-control"
                        id="itemModel" placeholder="Modelo del vehiculo">
             </div>
 
             <div class="form-group">
                 <label for="itemBrand">Marca</label>
-                <input type="text" ng-model="addItem.brand" ng-disabled="disableInputs" class="form-control"
+                <input type="text" ng-model="addCar.brand" ng-disabled="disableInputs" class="form-control"
                        id="itemBrand" placeholder="Marca del vehiculo">
             </div>
 
             <div class="form-group">
                 <label for="itemType">Tipo</label>
-                <select id="itemType" ng-model="addItem.type" class="form-control">
+                <select id="itemType" ng-model="addCar.type" class="form-control">
                     <option value="Coupe">Coupe</option>
                     <option value="Hatchback">Hatchback</option>
                     <option value="Minivan">Minivan</option>
@@ -39,7 +39,7 @@
 
             <div class="form-group">
                 <label for="itemCylinders">Cilindraje</label>
-                <select id="itemCylinders" ng-model="addItem.cylinders"  class="form-control">
+                <select id="itemCylinders" ng-model="addCar.cylinders"  class="form-control">
                     <option value="4">4</option>
                     <option value="5">5</option>
                     <option value="6">6</option>
@@ -49,7 +49,7 @@
 
             <div class="form-group">
                 <label for="itemEngine">Motor</label>
-                <select id="itemEngine" ng-model="addItem.engine" class="form-control">
+                <select id="itemEngine" ng-model="addCar.engine" class="form-control">
                     <option value="1.5">1.5</option>
                     <option value="1.6">1.6</option>
                     <option value="1.8">1.8</option>
@@ -65,45 +65,43 @@
 
             <div class="form-group">
                 <label for="itemPrice">Precio</label>
-                <input type="text" ng-model="addItem.price" class="form-control"
+                <input type="text" ng-model="addCar.price" class="form-control"
                        id="itemPrice" placeholder="Potencia del vehiculo">
             </div>
 
             <div class="form-group">
                 <label for="itemPower">Potencia</label>
-                <input type="text" ng-model="addItem.power" class="form-control"
+                <input type="text" ng-model="addCar.power" class="form-control"
                        id="itemPower" placeholder="Potencia del vehiculo" >
             </div>
 
             <div class="form-group">
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addItem.airbags"> Bolsas de aire
+                    <input type="checkbox" ng-model="addCar.airbags"> Bolsas de aire
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addItem.sunroof"> Quemacocos
+                    <input type="checkbox" ng-model="addCar.sunroof"> Quemacocos
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addItem.airBreaks"> Frenos de aire
+                    <input type="checkbox" ng-model="addCar.airBreaks"> Frenos de aire
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addItem.gps"> GPS
+                    <input type="checkbox" ng-model="addCar.gps"> GPS
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addItem.blueTooth"> Manos libres
+                    <input type="checkbox" ng-model="addCar.blueTooth"> Manos libres
                 </label>
             </div>
 
             <div class="form-group">
                 <label for="itemDescription">Descripción</label>
-                <textarea id="itemDescription" ng-model="addItem.description"
-                          class="form-control" rows="5" placeholder="Descripción del vehiculo">
-
-                </textarea>
+                <textarea id="itemDescription" ng-model="addCar.description"
+                          class="form-control" rows="5" placeholder="Descripción del vehiculo"></textarea>
             </div>
 
-            <div class="form-group" ng-show="addItem.images.length">
+            <div class="form-group" ng-show="addCar.images.length">
                 <div class="row">
-                    <div class="col-xs-3" ng-repeat="image in addItem.images track by $index">
+                    <div class="col-xs-3" ng-repeat="image in addCar.images track by $index">
                         <img ng-src="{{ image.url }}" alt="Foto de articulo" class="img-responsive">
                     </div>
                 </div>
@@ -114,7 +112,7 @@
                 <input type="file" id="addImage" class="" ng-file-select="onSelectFile($files, $resp)">
             </div>
 
-            <button type="submit" class="btn btn-default pull-right" ng-click="saveItem()" ng-disabled="disableInputs">
+            <button type="submit" class="btn btn-default pull-right" ng-click="saveCar()" ng-disabled="disableInputs">
                 Guardar
             </button>
         </form>
