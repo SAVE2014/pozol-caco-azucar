@@ -1,4 +1,5 @@
 from google.appengine.ext import ndb
+from google.appengine.ext import blobstore
 import webapp2
 import cgi
 import json
@@ -34,19 +35,15 @@ class CarEndpoint(webapp2.RequestHandler):
 
             if type is not None:
                 items = items.filter(Car.type == type)
-                # logging.info(type)
 
             if cylinders is not None:
                 items = items.filter(Car.cylinders == int(cylinders))
-                # logging.info(cylinders)
 
             if minPrice is not None:
                 items = items.filter(Car.price >= int(minPrice))
-                # logging.info(minPrice)
 
             if maxPrice is not None:
                 items = items.filter(Car.price <= int(maxPrice))
-                # logging.info(maxPrice)
 
             items_dict = []
             for i in items:
@@ -98,9 +95,12 @@ class CarEndpoint(webapp2.RequestHandler):
 
     def delete(self, slash, item_id):
         item_key = ndb.Key(urlsafe=item_id)
-        # item = item_key.get()
-        # blobstore.delete(blob_key)
-        # item.delete()
+        item = item_key.get()
+        images = item.images
+        for image  in images:
+            blobstore.delete(image['blob_key'])
+        item_key.delete()
+
 
 
 def read_json(passed_dict):

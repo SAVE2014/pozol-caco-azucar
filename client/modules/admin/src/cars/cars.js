@@ -17,7 +17,7 @@ angular.module('admin.cars', [])
         return Restangular.all('cars').getList().$object;
     })
 
-    .factory('EditCarSvc', function(growl){
+    .factory('EditCarSvc', function(growl, CarsSvc){
         var service = {};
 
         service.car = {};
@@ -37,6 +37,8 @@ angular.module('admin.cars', [])
         service.deleteCar = function(){
             service.car.remove().then(function() {
                     growl.addSuccessMessage("Articulo borrado exitosamente");
+                    CarsSvc.splice(CarsSvc.indexOf(service.car),1);
+                    service.car = {};
                 }, function() {
                     growl.addErrorMessage("Error al borrar articulo");
             });

@@ -19,14 +19,6 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 class AdminHandler(webapp2.RequestHandler):
 
     def get(self, url):
-
-        # qry = Word.query().fetch(projection=[Word.name])
-        # names = [ word.name for word in qry]
-
-        # template_values = {
-        #     "names": json.dumps(names)
-        # }
-
         template_path = 'release/admin.html'
         logging.info('release environment')
         if self.request.get('debug', None) or self.app.debug:

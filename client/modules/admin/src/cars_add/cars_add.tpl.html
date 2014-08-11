@@ -6,40 +6,40 @@
             <h1>Instrucciones</h1>
 
             <p>
-                Favor de agregar por lo menos una foto por cada nuevo articulo. Para una major resolucion se recomienda
+                Favor de agregar por lo menos una foto por cada nuevo vehiculo. Para una major resolucion se recomienda
                 que los fotos sean de 640 pixeles de largo por 320 pixeles de ancho.
             </p>
         </div>
     </div>
     <div class="col-xs-12 col-md-8 col-md-offset-2 add-table">
-        <form role="form">
+        <form role="form" id="form" name="form">
             <div class="form-group">
                 <label for="itemModel">Modelo</label>
                 <input type="text" ng-model="addCar.model" ng-disabled="disableInputs" class="form-control"
-                       id="itemModel" placeholder="Modelo del vehiculo">
+                       id="itemModel" placeholder="Modelo del vehiculo" ng-minlength="2" ng-required="true" >
             </div>
 
             <div class="form-group">
                 <label for="itemBrand">Marca</label>
                 <input type="text" ng-model="addCar.brand" ng-disabled="disableInputs" class="form-control"
-                       id="itemBrand" placeholder="Marca del vehiculo">
+                       id="itemBrand" placeholder="Marca del vehiculo" ng-minlength="2" ng-required="true" >
             </div>
 
             <div class="form-group">
                 <label for="itemType">Tipo</label>
-                <select id="itemType" ng-model="addCar.type" class="form-control">
+                <select id="itemType" ng-model="addCar.type" class="form-control" ng-required="true" >
                     <option value="Coupe">Coupe</option>
                     <option value="Hatchback">Hatchback</option>
                     <option value="Minivan">Minivan</option>
                     <option value="Pickup">Pickup</option>
                     <option value="Sedan">Sedan</option>
-                    <option value="Suv">Suv</option>
+                    <option value="Suv">SUV</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="itemCylinders">Cilindraje</label>
-                <select id="itemCylinders" ng-model="addCar.cylinders"  class="form-control">
+                <select id="itemCylinders" ng-model="addCar.cylinders"  class="form-control" ng-required="true" >
                     <option value="4">4</option>
                     <option value="5">5</option>
                     <option value="6">6</option>
@@ -49,7 +49,7 @@
 
             <div class="form-group">
                 <label for="itemEngine">Motor</label>
-                <select id="itemEngine" ng-model="addCar.engine" class="form-control">
+                <select id="itemEngine" ng-model="addCar.engine" class="form-control" ng-required="true" >
                     <option value="1.5">1.5</option>
                     <option value="1.6">1.6</option>
                     <option value="1.8">1.8</option>
@@ -66,13 +66,13 @@
             <div class="form-group">
                 <label for="itemPrice">Precio</label>
                 <input type="text" ng-model="addCar.price" class="form-control"
-                       id="itemPrice" placeholder="Potencia del vehiculo">
+                       id="itemPrice" placeholder="Potencia del vehiculo" ng-minlength="5" ng-pattern="/^[0-9]+$/" ng-required="true" >
             </div>
 
             <div class="form-group">
                 <label for="itemPower">Potencia</label>
                 <input type="text" ng-model="addCar.power" class="form-control"
-                       id="itemPower" placeholder="Potencia del vehiculo" >
+                       id="itemPower" placeholder="Potencia del vehiculo" ng-minlength="3" ng-pattern="/^[0-9]+$/" ng-required="true" >
             </div>
 
             <div class="form-group">
@@ -96,7 +96,7 @@
             <div class="form-group">
                 <label for="itemDescription">Descripción</label>
                 <textarea id="itemDescription" ng-model="addCar.description"
-                          class="form-control" rows="5" placeholder="Descripción del vehiculo"></textarea>
+                          class="form-control" rows="5" placeholder="Descripción del vehiculo" ng-required="true" ></textarea>
             </div>
 
             <div class="form-group" ng-show="addCar.images.length">
@@ -112,7 +112,7 @@
                 <input type="file" id="addImage" class="" ng-file-select="onSelectFile($files, $resp)">
             </div>
 
-            <button type="submit" class="btn btn-default pull-right" ng-click="saveCar()" ng-disabled="disableInputs">
+            <button type="submit" class="btn btn-default pull-right" ng-click="saveCar()" ng-disabled="form.$invalid || !addCar.images.length">
                 Guardar
             </button>
         </form>

@@ -65,6 +65,6 @@ def read_json(passed_dict):
         name=passed_dict['name'],
         email=passed_dict['email'],
         phone=passed_dict['phone'],
-        comments=passed_dict['comments'],
+        comments=passed_dict['comments'] if passed_dict['comments'] else '',
         cars=passed_dict['cars']
     )

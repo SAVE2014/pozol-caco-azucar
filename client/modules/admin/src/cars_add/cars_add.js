@@ -36,7 +36,6 @@ angular.module('admin.add', [])
         };
 
         factory.saveCar = function() {
-            console.log(JSON.stringify(factory, null, '\t'));
             CarsSvc.post(angular.copy(factory)).then(function(data) {
                     factory.model = '';
                     factory.brand = '';
@@ -53,7 +52,7 @@ angular.module('admin.add', [])
                     factory.description = '';
                     factory.images = [];
                     growl.addSuccessMessage("Vehiculo agregado exitosamente");
-                    console.log(data);
+                    CarsSvc.push(data);
                 }, function() {
                     growl.addErrorMessage("Error al agregar vehiculo");
             });

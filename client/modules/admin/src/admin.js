@@ -16,6 +16,12 @@ angular.module('admin', [
     .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
         RestangularProvider.setBaseUrl('/api/v1');
+        RestangularProvider.setRequestInterceptor(function(elem, operation) {
+              if (operation === "remove") {
+                 return null;
+              }
+              return elem;
+        });
         $locationProvider.html5Mode(true);
 
     })

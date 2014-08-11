@@ -17,7 +17,7 @@ angular.module('admin.requests', [])
         return Restangular.all('requests').getList().$object;
     })
 
-    .factory('EditRequestSvc', function(growl){
+    .factory('EditRequestSvc', function(growl, RequestsSvc){
         var service = {};
 
         service.request = {};
@@ -37,6 +37,8 @@ angular.module('admin.requests', [])
         service.deleteRequest = function(){
             service.request.remove().then(function() {
                     growl.addSuccessMessage("Solicitud borrada exitosamente");
+                    RequestsSvc.splice(RequestsSvc.indexOf(service.request), 1);
+                    service.request = {};
                 }, function() {
                     growl.addErrorMessage("Error al borrar solicitud");
             });
