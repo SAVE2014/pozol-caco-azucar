@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="result-content">
-                    <div class="model">{{car.model}}</div>
+                    <div class="model"><a ui-sref=".details({ itemId: car.id})">{{car.model}}</a></div>
 
                     <div class="price">
                         ${{ car.price | number:0 }}
