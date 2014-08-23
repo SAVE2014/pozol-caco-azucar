@@ -15,10 +15,10 @@ angular.module('app.search', ['ngRoute'])
 
     .controller('SearchController', function($scope ) {
 
-        $scope.type = 'Tipo de Carro';
+        $scope.type = 'Type of Car';
         $scope.cylinders = '';
-        $scope.minPrice = 50000;
-        $scope.maxPrice = 1900000;
+        $scope.minPrice = 5000;
+        $scope.maxPrice = 190000;
 
         $scope.setType = function(type){
             $scope.type = type;

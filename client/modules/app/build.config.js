@@ -30,7 +30,7 @@ module.exports = {
 
 	vendor_files: {
         js: [
-			'<%= manage %>/vendor/jquery/dist/jquery.js',
+			'<%= manage %>/vendor/jquery/jquery.js',
 			'<%= manage %>/vendor/jqueryui/ui/jquery-ui.js',
 			'<%= manage %>/vendor/moment/moment.js',
 			'<%= manage %>/vendor/angular/angular.js',

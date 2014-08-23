@@ -3,31 +3,31 @@
 <div class="add-view">
     <div class="row add-row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
-            <h1>Instrucciones</h1>
+            <h1>Instructions</h1>
 
             <p>
-                Favor de agregar por lo menos una foto por cada nuevo vehiculo. Para una major resolucion se recomienda
-                que los fotos sean de 640 pixeles de largo por 320 pixeles de ancho.
+                Please add at least one picture per automobile. For best resolution, use pictures 640px
+                wide by 427px tall.
             </p>
         </div>
     </div>
     <div class="col-xs-12 col-md-8 col-md-offset-2 add-table">
         <form role="form" id="form" name="form">
             <div class="form-group">
-                <label for="itemModel">Modelo</label>
+                <label for="itemModel">Model</label>
                 <input type="text" ng-model="addCar.model" ng-disabled="disableInputs" class="form-control"
-                       id="itemModel" placeholder="Modelo del vehiculo" ng-minlength="2" ng-required="true" >
+                       id="itemModel" placeholder="Automobile model" ng-minlength="2" ng-required="true">
             </div>
 
             <div class="form-group">
-                <label for="itemBrand">Marca</label>
+                <label for="itemBrand">Brand</label>
                 <input type="text" ng-model="addCar.brand" ng-disabled="disableInputs" class="form-control"
-                       id="itemBrand" placeholder="Marca del vehiculo" ng-minlength="2" ng-required="true" >
+                       id="itemBrand" placeholder="Automobile brand" ng-minlength="2" ng-required="true">
             </div>
 
             <div class="form-group">
-                <label for="itemType">Tipo</label>
-                <select id="itemType" ng-model="addCar.type" class="form-control" ng-required="true" >
+                <label for="itemType">Type</label>
+                <select id="itemType" ng-model="addCar.type" class="form-control" ng-required="true">
                     <option value="Coupe">Coupe</option>
                     <option value="Hatchback">Hatchback</option>
                     <option value="Minivan">Minivan</option>
@@ -38,8 +38,8 @@
             </div>
 
             <div class="form-group">
-                <label for="itemCylinders">Cilindraje</label>
-                <select id="itemCylinders" ng-model="addCar.cylinders"  class="form-control" ng-required="true" >
+                <label for="itemCylinders">Cylinders</label>
+                <select id="itemCylinders" ng-model="addCar.cylinders" class="form-control" ng-required="true">
                     <option value="4">4</option>
                     <option value="5">5</option>
                     <option value="6">6</option>
@@ -48,8 +48,8 @@
             </div>
 
             <div class="form-group">
-                <label for="itemEngine">Motor</label>
-                <select id="itemEngine" ng-model="addCar.engine" class="form-control" ng-required="true" >
+                <label for="itemEngine">Engine</label>
+                <select id="itemEngine" ng-model="addCar.engine" class="form-control" ng-required="true">
                     <option value="1.5">1.5</option>
                     <option value="1.6">1.6</option>
                     <option value="1.8">1.8</option>
@@ -64,56 +64,60 @@
             </div>
 
             <div class="form-group">
-                <label for="itemPrice">Precio</label>
+                <label for="itemPrice">Price</label>
                 <input type="text" ng-model="addCar.price" class="form-control"
-                       id="itemPrice" placeholder="Potencia del vehiculo" ng-minlength="5" ng-pattern="/^[0-9]+$/" ng-required="true" >
+                       id="itemPrice" placeholder="Automobile price" ng-minlength="5" ng-pattern="/^[0-9]+$/"
+                       ng-required="true">
             </div>
 
             <div class="form-group">
-                <label for="itemPower">Potencia</label>
+                <label for="itemPower">Power</label>
                 <input type="text" ng-model="addCar.power" class="form-control"
-                       id="itemPower" placeholder="Potencia del vehiculo" ng-minlength="3" ng-pattern="/^[0-9]+$/" ng-required="true" >
+                       id="itemPower" placeholder="Automobile power" ng-minlength="3" ng-pattern="/^[0-9]+$/"
+                       ng-required="true">
             </div>
 
             <div class="form-group">
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addCar.airbags"> Bolsas de aire
+                    <input type="checkbox" ng-model="addCar.airbags"> Airbags
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addCar.sunroof"> Quemacocos
+                    <input type="checkbox" ng-model="addCar.sunroof"> Sunroof
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addCar.airBreaks"> Frenos de aire
+                    <input type="checkbox" ng-model="addCar.airBreaks"> Air breaks
                 </label>
                 <label class="checkbox-inline">
                     <input type="checkbox" ng-model="addCar.gps"> GPS
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="addCar.blueTooth"> Manos libres
+                    <input type="checkbox" ng-model="addCar.blueTooth"> Bluetooth
                 </label>
             </div>
 
             <div class="form-group">
-                <label for="itemDescription">Descripción</label>
+                <label for="itemDescription">Description</label>
                 <textarea id="itemDescription" ng-model="addCar.description"
-                          class="form-control" rows="5" placeholder="Descripción del vehiculo" ng-required="true" ></textarea>
+                          class="form-control" rows="5" placeholder="Automobile description"
+                          ng-required="true"></textarea>
             </div>
 
             <div class="form-group" ng-show="addCar.images.length">
                 <div class="row">
                     <div class="col-xs-3" ng-repeat="image in addCar.images track by $index">
-                        <img ng-src="{{ image.url }}" alt="Foto de articulo" class="img-responsive">
+                        <img ng-src="{{ image.url }}" alt="Car's picture" class="img-responsive">
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="addImage">Agregar Foto</label>
+                <label for="addImage">Add picture</label>
                 <input type="file" id="addImage" class="" ng-file-select="onSelectFile($files, $resp)">
             </div>
 
-            <button type="submit" class="btn btn-default pull-right" ng-click="saveCar()" ng-disabled="form.$invalid || !addCar.images.length">
-                Guardar
+            <button type="submit" class="btn btn-default pull-right" ng-click="saveCar()"
+                    ng-disabled="form.$invalid || !addCar.images.length">
+                Save
             </button>
         </form>
     </div>

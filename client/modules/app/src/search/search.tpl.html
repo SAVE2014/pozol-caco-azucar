@@ -4,9 +4,9 @@
             <a ui-sref="home"><span class="ion-home"></span></a>
         </div>
          <div class="search-text col-xs-12">
-            <h1>FACÍL DE ENCONTRAR</h1>
+            <h1>EASY TO FIND</h1>
 
-            <p class="lead">Solo dinos cuales son tus preferencias<br> y nosotros haremos el resto por ti.</p>
+            <p class="lead">Just tell us your preferences<br> and we'll do the rest.</p>
         </div>
     </div>
     <div class="options">
@@ -38,14 +38,14 @@
 
                 <div class="dropdown" ng-init="cylindersBool = false" ng-class="{flip: cylindersBool}" ng-click="cylindersBool = !cylindersBool">
                     <div class="front">
-                        <span>{{ cylinders }} Cilindros</span>
+                        <span>{{ cylinders }} Cylinders</span>
                     </div>
                     <div class="back">
                         <ul>
-                            <li ng-click="setCylinders(4)" >4 cilindros</li>
-                            <li ng-click="setCylinders(5)" >5 cilindros</li>
-                            <li ng-click="setCylinders(6)" >6 cilindros</li>
-                            <li ng-click="setCylinders(8)" >8 cilindros</li>
+                            <li ng-click="setCylinders(4)" >4 cylinders</li>
+                            <li ng-click="setCylinders(5)" >5 cylinders</li>
+                            <li ng-click="setCylinders(6)" >6 cylinders</li>
+                            <li ng-click="setCylinders(8)" >8 cylinders</li>
                         </ul>
                     </div>
                 </div>
@@ -57,14 +57,14 @@
 
                 <div class="dropdown" ng-init="priceBool = false" ng-class="{flip: priceBool}" ng-click="priceBool = !priceBool">
                     <div class="front">
-                        <span>Precio</span>
+                        <span>Price</span>
                     </div>
                     <div class="back">
                         <ul>
-                            <li>Mas de {{ minPrice | currency }}</li>
-                            <li>Menos de {{ maxPrice | currency }}</li>
+                            <li>More than ${{ minPrice | number }}</li>
+                            <li>Less than ${{ maxPrice | number }}</li>
                             <li>
-                                <div range-slider min="50000" max="1900000" model-min="minPrice" model-max="maxPrice" step="5000" show-values="false"></div>
+                                <div range-slider min="5000" max="190000" model-min="minPrice" model-max="maxPrice" step="5000" show-values="false"></div>
                             </li>
                         </ul>
                     </div>
@@ -74,8 +74,8 @@
     </div>
 
     <div class="search">
-        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type == 'Tipo de Carro' || cylinders == 'Motor' || ( minPrice == 50000 && maxPrice == 1900000)">
-            BUSCAR
+        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type == 'Type of Car' || cylinders == '' || ( minPrice == 50000 && maxPrice == 190000)">
+            SEARCH
         </button>
      </div>
 </div>

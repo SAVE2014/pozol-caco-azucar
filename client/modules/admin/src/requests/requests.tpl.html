@@ -5,8 +5,8 @@
         <form class="form-inline col-xs-12 col-md-8 col-md-offset-2" role="form">
             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon">Busqueda</div>
-                    <input class="form-control" type="text" ng-model="searcText" placeholder="Solicitud ...">
+                    <div class="input-group-addon">Search</div>
+                    <input class="form-control" type="text" ng-model="searcText" placeholder="Requests ...">
                 </div>
             </div>
         </form>
@@ -17,11 +17,11 @@
             <table class="table table-hover table-bordered">
                 <thead class="items-table-head">
                 <tr ng-init="predicate='created'">
-                    <th ng-click="predicate = 'name'; reverse=!reverse">Nombre</th>
+                    <th ng-click="predicate = 'name'; reverse=!reverse">Name</th>
                     <th ng-click="predicate = 'email'; reverse=!reverse">Email</th>
-                    <th ng-click="predicate = 'phone'; reverse=!reverse">Telefono</th>
-                    <th ng-click="predicate = 'status'; reverse=!reverse">Estatus</th>
-                    <th ng-click="predicate = 'created'; reverse=!reverse" class="no-small-screen">Creado</th>
+                    <th ng-click="predicate = 'phone'; reverse=!reverse">Phone Number</th>
+                    <th ng-click="predicate = 'status'; reverse=!reverse">Status</th>
+                    <th ng-click="predicate = 'created'; reverse=!reverse" class="no-small-screen">Created</th>
                 </tr>
                 </thead>
 
@@ -43,71 +43,71 @@
 <div class="edit-view" ng-show="editView">
     <div class="row edit-btn-row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
-            <button type="button" class="btn btn-default" ng-click="hideDetails()"> Ver todas las solicitudes</button>
+            <button type="button" class="btn btn-default" ng-click="hideDetails()"> See all requests</button>
 
-            <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Editar
+            <button type="button" class="btn btn-default pull-right" ng-click="disableInputs = !disableInputs">Edit
             </button>
         </div>
     </div>
 
     <div class="col-xs-12 col-md-8 col-md-offset-2">
         <form role="form">
-            <center><h1>Solicitud</h1></center>
+            <center><h1>Request</h1></center>
 
             <div class="form-group">
-                <label for="itemCylinders">Estatus</label>
+                <label for="itemCylinders">Status</label>
                 <select id="itemCylinders" ng-model="editRequest.request.status" ng-disabled="disableInputs"
                         class="form-control">
-                    <option value="No revisado">No revisado</option>
-                    <option value="Revisado">Revisado</option>
+                    <option value="No revisado">No reviewed</option>
+                    <option value="Revisado">Reviewed</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="requestDate">Creada el dia</label>
+                <label for="requestDate">Created on</label>
                 <input type="text" ng-model="editRequest.request.created" readonly class="form-control"
-                       id="requestDate" placeholder="Nombre">
+                       id="requestDate" placeholder="Date">
             </div>
 
             <div class="form-group">
                 <label for="requestName">Name</label>
                 <input type="text" ng-model="editRequest.request.name" readonly class="form-control"
-                       id="requestName" placeholder="Nombre">
+                       id="requestName" placeholder="Name">
             </div>
 
             <div class="form-group">
-                <label for="requestEmail">email</label>
+                <label for="requestEmail">Email</label>
                 <input type="text" ng-model="editRequest.request.email" readonly class="form-control"
-                       id="requestEmail" placeholder="Correo electronico">
+                       id="requestEmail" placeholder="Email">
             </div>
 
             <div class="form-group">
-                <label for="requestPhone">Telefono</label>
+                <label for="requestPhone">Phone Number</label>
                 <input type="text" ng-model="editRequest.request.phone" readonly class="form-control"
-                       id="requestPhone" placeholder="Telefono">
+                       id="requestPhone" placeholder="Phone Number">
             </div>
 
             <div class="form-group">
-                <label for="">Vehiculos</label>
+                <label for="">Automobiles</label>
                 <input type="text"  ng-repeat="car in editRequest.request.cars track by $index" value="{{ car }}" readonly class="form-control">
             </div>
 
             <div class="form-group">
-                <label for="RequestComments">Comentarios</label>
+                <label for="RequestComments">Comments</label>
                 <textarea id="RequestComments" ng-model="editRequest.request.comments" readonly
-                          class="form-control" rows="5" placeholder="Comentarios">
+                          class="form-control" rows="5" placeholder="Comments">
 
                 </textarea>
             </div>
 
             <button type="submit" class="btn btn-default pull-right" ng-click="saveRequest()"
                     ng-disabled="disableInputs">
-                Guardar
+                Save
             </button>
 
             <button type="submit" class="btn btn-danger pull-right" ng-click="deleteRequest()"
                     ng-disabled="disableInputs">
-                Borrar
+                Delete
             </button>
         </form>
     </div>
