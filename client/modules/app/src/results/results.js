@@ -49,7 +49,6 @@ angular.module('app.results', ['ngRoute'])
         };
 
         factory.sendRequest = function(){
-            console.log(angular.copy(factory));
             Restangular.all('requests').post(angular.copy(factory)).then(function(){
                 console.log('success!!');
                 factory.name = '';
