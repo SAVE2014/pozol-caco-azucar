@@ -39,9 +39,10 @@
 		height: 100%
 
 		.headers
-			@media (min-height: 500px)
+			margin-top: -50px
+			@media (min-width: 500px)
 				margin-top: -100px
-			@media (min-height: 768px)
+			@media (min-width: 768px)
 				margin-top: -180px
 			text-align: center
 			color: white
@@ -50,9 +51,9 @@
 			h1
 				font-size: 2em
 				@media (min-width: 480px)
-					font-size: 4em
+					font-size: 3em
 				@media (min-width: 768px)
-					font-size: 6em
+					font-size: 4em
 				font-weight: bold
 				margin-bottom: 0px
 
@@ -66,11 +67,31 @@
 				font-weight: normal
 				letter-spacing: 1px
 
+
+			.steps
+				+flexbox
+				+flex(1)
+				+align-content(space-around)
+				margin-bottom: 15px
+				@media (max-width: 600px)
+					+flex-direction(column)
+
+				.step
+					+flex(1)
+					margin: 10px
+					padding: 10px
+					background-color: rgba(255, 206, 84, 0.75)
+
+					.number
+						display: block
+						text-align: center
+						font-size: 3em
+
 			.btn
 				border: solid 1px white
 				font-size: 1.5em
 				color: white
-				padding: 16px
+				padding: 16px 20px
 				background-color: rgba(0,0,0, 0.2)
 
 			.btn:hover

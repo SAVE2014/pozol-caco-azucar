@@ -4,15 +4,17 @@
             <a ui-sref="home"><span class="ion-home"></span></a>
         </div>
          <div class="search-text col-xs-12">
-            <h1>EASY TO FIND</h1>
+            <h1>FÁCIL DE ENCONTRAR</h1>
 
-            <p class="lead">Just tell us your preferences<br> and we'll do the rest.</p>
+            <p class="directions">Solo dinos cuáles son tus preferencias<br> y nosotros haremos el resto por ti.</p>
         </div>
     </div>
     <div class="options">
             <div class="option">
                 <div class="icon">
                     <span class="ion-model-s"></span>
+
+                    <p>SELECCIONA UNA OPCIÓN</p>
                 </div>
 
                 <div class="dropdown" ng-init="typeBool = false" ng-class="{flip: typeBool}" ng-click="typeBool = !typeBool">
@@ -34,18 +36,20 @@
             <div class="option">
                 <div class="icon">
                     <span class="ion-speedometer"></span>
+
+                    <p>SELECCIONA UNA OPCIÓN</p>
                 </div>
 
                 <div class="dropdown" ng-init="cylindersBool = false" ng-class="{flip: cylindersBool}" ng-click="cylindersBool = !cylindersBool">
                     <div class="front">
-                        <span>{{ cylinders }} Cylinders</span>
+                        <span>{{ cylinders }} Cilindros</span>
                     </div>
                     <div class="back">
                         <ul>
-                            <li ng-click="setCylinders(4)" >4 cylinders</li>
-                            <li ng-click="setCylinders(5)" >5 cylinders</li>
-                            <li ng-click="setCylinders(6)" >6 cylinders</li>
-                            <li ng-click="setCylinders(8)" >8 cylinders</li>
+                            <li ng-click="setCylinders(4)" >4 Cilindros</li>
+                            <li ng-click="setCylinders(5)" >5 Cilindros</li>
+                            <li ng-click="setCylinders(6)" >6 Cilindros</li>
+                            <li ng-click="setCylinders(8)" >8 Cilindros</li>
                         </ul>
                     </div>
                 </div>
@@ -53,6 +57,8 @@
             <div class="option">
                 <div class="icon">
                     <span class="ion-cash"></span>
+
+                    <p>MUEVE EL RANGO DE PRECIO</p>
                 </div>
 
                 <div class="dropdown" ng-init="priceBool = false" ng-class="{flip: priceBool}" ng-click="priceBool = !priceBool">
@@ -61,10 +67,10 @@
                     </div>
                     <div class="back">
                         <ul>
-                            <li>More than ${{ minPrice | number }}</li>
-                            <li>Less than ${{ maxPrice | number }}</li>
+                            <li>Más de ${{ minPrice | number }}</li>
+                            <li>Menos de ${{ maxPrice | number }}</li>
                             <li>
-                                <div range-slider min="5000" max="190000" model-min="minPrice" model-max="maxPrice" step="5000" show-values="false"></div>
+                                <div range-slider min="50000" max="1900000" model-min="minPrice" model-max="maxPrice" step="5000" show-values="false"></div>
                             </li>
                         </ul>
                     </div>
@@ -74,15 +80,16 @@
     </div>
 
     <div class="search">
-        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type == 'Type of Car' || cylinders == '' || ( minPrice == 50000 && maxPrice == 190000)">
-            SEARCH
+        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type == 'Tipo de Carro' || cylinders == '' || ( minPrice == 50000 && maxPrice == 1900000)">
+            BUSCAR
         </button>
      </div>
 </div>
 
 <footer class="footer">
     <div class="container">
-        Copyright © 2014. All rights reserved. <span class="author">Created by <a href="http://www.hectorjimenez.me">Hector Jimemez</a></span>
+        Copyright © 2014. All rights reserved.
+        <!--<span class="author">Created by <a href="http://www.hectorjimenez.me">Hector Jimemez</a></span>-->
     </div>
 </footer>
 

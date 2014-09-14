@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 import webapp2
+from google.appengine.api import users
 import os
 import jinja2
 import logging
@@ -19,12 +20,18 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 class AdminHandler(webapp2.RequestHandler):
 
     def get(self, url):
-        template_path = 'release/admin.html'
-        logging.info('release environment')
-        if self.request.get('debug', None) or self.app.debug:
-            template_path = 'build/admin.html'
-            logging.info('build environment')
+        # Checks for active Google account session
+        user = users.get_current_user()
 
-        template = JINJA_ENVIRONMENT.get_template(template_path)
+        if user:
+            template_path = 'release/admin.html'
+            logging.info('release environment')
+            if self.request.get('debug', None) or self.app.debug:
+                template_path = 'build/admin.html'
+                logging.info('build environment')
 
-        self.response.out.write(template.render())
+            template = JINJA_ENVIRONMENT.get_template(template_path)
+
+            self.response.out.write(template.render())
+        else:
+            self.redirect(users.create_login_url(self.request.uri))

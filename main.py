@@ -13,7 +13,7 @@ from server.services.blob_service import DownloadService
 
 
 app = webapp2.WSGIApplication([
-    routes.DomainRoute('admin.car-catalog.appspot.com', [
+    routes.DomainRoute('admin\.autos-mexico\.appspot\.com', [
         webapp2.Route(r'/api/v1/cars<:/?><:(.*)>', handler=CarEndpoint, name='car-endpoint'),
         webapp2.Route(r'/api/v1/requests<:/?><:(.*)>', handler=RequestEndpoint, name='request-endpoint'),
         webapp2.Route(r'/api/v1/services/upload', handler=UploadService, name='upload-service'),
