@@ -22,16 +22,17 @@ class AdminHandler(webapp2.RequestHandler):
     def get(self, url):
         # Checks for active Google account session
         user = users.get_current_user()
-
         if user:
-            template_path = 'release/admin.html'
-            logging.info('release environment')
-            if self.request.get('debug', None) or self.app.debug:
-                template_path = 'build/admin.html'
-                logging.info('build environment')
+            if users.is_current_user_admin():
+                template_path = 'release/admin.html'
+                logging.info('release environment')
+                if self.request.get('debug', None) or self.app.debug:
+                    template_path = 'build/admin.html'
+                    logging.info('build environment')
 
-            template = JINJA_ENVIRONMENT.get_template(template_path)
-
-            self.response.out.write(template.render())
+                template = JINJA_ENVIRONMENT.get_template(template_path)
+                self.response.out.write(template.render())
+            else:
+                self.redirect(uri='http://autos-mexico.appspot.com')
         else:
             self.redirect(users.create_login_url(self.request.uri))
