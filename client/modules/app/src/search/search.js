@@ -18,7 +18,7 @@ angular.module('app.search', ['ngRoute'])
         $scope.type = 'Tipo de Carro';
         $scope.cylinders = '';
         $scope.minPrice = 50000;
-        $scope.maxPrice = 1900000;
+        $scope.maxPrice = 2900000;
 
         $scope.setType = function(type){
             $scope.type = type;

@@ -63,24 +63,23 @@
 
                 <div class="dropdown" ng-init="priceBool = false" ng-class="{flip: priceBool}" ng-click="priceBool = !priceBool">
                     <div class="front">
-                        <span>Price</span>
+                        <span>Precio</span>
                     </div>
                     <div class="back">
                         <ul>
                             <li>Más de ${{ minPrice | number }}</li>
                             <li>Menos de ${{ maxPrice | number }}</li>
                             <li>
-                                <div range-slider min="50000" max="1900000" model-min="minPrice" model-max="maxPrice" step="5000" show-values="false"></div>
+                                <div range-slider min="50000" max="2900000" model-min="minPrice" model-max="maxPrice" step="5000" show-values="false"></div>
                             </li>
                         </ul>
                     </div>
                 </div>
-
             </div>
     </div>
 
     <div class="search">
-        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type == 'Tipo de Carro' || cylinders == '' || ( minPrice == 50000 && maxPrice == 1900000)">
+        <button  ui-sref="search.results({ type: type, cylinders: cylinders, minPrice: minPrice, maxPrice: maxPrice })" class="btn btn-search" ng-disabled="type == 'Tipo de Carro' || cylinders == '' || ( minPrice == 50000 && maxPrice == 2900000)">
             BUSCAR
         </button>
      </div>
